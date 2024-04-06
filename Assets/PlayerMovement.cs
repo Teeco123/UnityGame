@@ -6,8 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 playerVelocity;
-    public float playerSpeed = 2.0f;
-    public float gravityValue = -9.81f;
+    private float playerSpeed = 2.0f;
+    private float gravityValue = -9.81f;
     // Start is called before the first frame update
     void Start()
     {
