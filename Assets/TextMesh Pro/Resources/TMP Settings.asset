@@ -38,7 +38,7 @@ MonoBehaviour:
   m_enableEmojiSupport: 1
   m_MissingCharacterSpriteUnicode: 0
   m_defaultColorGradientPresetsPath: Color Gradient Presets/
-  m_defaultStyleSheet: {fileID: 11400000, guid: 4bc6cf56cd7e9f74e8613ea83ccece41,
+  m_defaultStyleSheet: {fileID: 11400000, guid: a2158288b1fa8a64494cf62dbfc35e3d,
     type: 2}
   m_StyleSheetsResourcePath: 
   m_leadingCharacters: {fileID: 4900000, guid: d82c1b31c7e74239bff1220585707d2b, type: 3}
