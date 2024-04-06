@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ScreenModeSetting : MonoBehaviour
 {
-    [SerializeField] private TMPro.TMP_Dropdown ScreenModeDropDown;
+    [SerializeField]
+    private TMPro.TMP_Dropdown ScreenModeDropDown;
     private Resolutions resolutions;
-   
+
     void Start()
     {
         resolutions = FindObjectOfType<Resolutions>();
@@ -25,9 +26,19 @@ public class ScreenModeSetting : MonoBehaviour
         }
         if (index == 1)
         {
-            Screen.SetResolution(resolutions.resolution.width, resolutions.resolution.height, false);
+            Screen.SetResolution(
+                resolutions.resolution.width,
+                resolutions.resolution.height,
+                false
+            );
 
             Screen.fullScreenMode = FullScreenMode.Windowed;
+        }
+        if (index == 2)
+        {
+            Screen.SetResolution(resolutions.resolution.width, resolutions.resolution.height, true);
+
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
         }
     }
 }
