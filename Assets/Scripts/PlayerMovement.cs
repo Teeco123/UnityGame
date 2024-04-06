@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 playerVelocity;
     private float playerSpeed = 2.0f;
     private float gravityValue = -9.8f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (DialogueManager.Getinstance().dialogueIsPlaying)
+        {
+            return;
+        }
 
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         controller.Move(move * Time.deltaTime * playerSpeed);
