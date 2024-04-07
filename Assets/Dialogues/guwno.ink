@@ -1,19 +1,24 @@
-Siema czego chcesz?
--> Wybory
+Siema czego chcesz? #speaker:ziutek
+-> wybory
 
-=== Wybory ===
-+   [Kupie piwo]
-        Chcialbym kupic u ciebie piwo! 
+=== wybory ===
+*   [Kupie piwo]
+        Jakie chcialbys te piwko?
         -> kupnoPiwa
-+   Bywaj
-    -> ending
++   [Bywaj]
+        Dobrze bywaj w takim razie
+        -> END
 
 
 
 === kupnoPiwa ===
-sprzedam ci tyskie za 5zl
-*   Ok dzieki
--> Wybory
++[Tyskie]
+    Trzymaj tyskie
+    -> wybory
++[Harnas]
+    Trzymaj harnasia
+    -> wybory
++[Piwko Tesco]
+    Sigma masz piwko tesco
+    -> wybory
 
-=== ending ===
-Dobrze to bywaj -> END
