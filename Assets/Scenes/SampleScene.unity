@@ -1513,7 +1513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &987425116
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1755,6 +1755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialoguePanel: {fileID: 987425115}
   dialogueText: {fileID: 1028458541}
+  displayNameText: {fileID: 1778338756}
   choices:
   - {fileID: 1487553092}
   - {fileID: 355783683}
