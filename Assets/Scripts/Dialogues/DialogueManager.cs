@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Ink.Runtime;
+using Ink.UnityIntegration;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,6 +11,10 @@ public class DialogueManager : MonoBehaviour
     [Header("Params")]
     [SerializeField]
     private float typingSpeed = 0.04f;
+
+    [Header("Globals Ink File")]
+    [SerializeField]
+    private InkFile globalsInkFile;
 
     [Header("Dialogue UI")]
     [SerializeField]
@@ -52,7 +57,7 @@ public class DialogueManager : MonoBehaviour
         }
         instance = this;
 
-        dialogueVariables = new DialogueVariables();
+        dialogueVariables = new DialogueVariables(globalsInkFile.filePath);
     }
 
     public static DialogueManager Getinstance()
