@@ -7,6 +7,10 @@ using UnityEngine.EventSystems;
 
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Params")]
+    [SerializeField]
+    private float typingSpeed = 0.04f;
+
     [Header("Dialogue UI")]
     [SerializeField]
     private GameObject dialoguePanel;
@@ -93,13 +97,23 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
+            StartCoroutine(DisplayLine(currentStory.Continue()));
             DisplayChoices();
             HandleTags(currentStory.currentTags);
         }
         else
         {
             ExitDialogueMode();
+        }
+    }
+
+    private IEnumerator DisplayLine(string line)
+    {
+        dialogueText.text = "";
+        foreach (char letter in line.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
         }
     }
 
