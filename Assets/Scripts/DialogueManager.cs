@@ -31,6 +31,7 @@ public class DialogueManager : MonoBehaviour
 
     public bool dialogueIsPlaying { get; private set; }
 
+    private bool canContinueToNextLine = false;
     private Coroutine DisplayLineCoroutine;
 
     static DialogueManager instance;
@@ -71,7 +72,7 @@ public class DialogueManager : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (canContinueToNextLine && Input.GetKeyDown(KeyCode.Return))
         {
             ContinueStory();
         }
@@ -104,7 +105,7 @@ public class DialogueManager : MonoBehaviour
                 StopCoroutine(DisplayLineCoroutine);
             }
             DisplayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
-            DisplayChoices();
+
             HandleTags(currentStory.currentTags);
         }
         else
@@ -116,11 +117,17 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator DisplayLine(string line)
     {
         dialogueText.text = "";
+
+        canContinueToNextLine = false;
+        HideChoices();
+
         foreach (char letter in line.ToCharArray())
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
+        canContinueToNextLine = true;
+        DisplayChoices();
     }
 
     private void HandleTags(List<string> currentTags)
@@ -144,6 +151,14 @@ public class DialogueManager : MonoBehaviour
                     Debug.LogWarning("tag is not used now");
                     break;
             }
+        }
+    }
+
+    private void HideChoices()
+    {
+        foreach (GameObject choiceButton in choices)
+        {
+            choiceButton.SetActive(false);
         }
     }
 
@@ -179,6 +194,9 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
-        currentStory.ChooseChoiceIndex(choiceIndex);
+        if (canContinueToNextLine)
+        {
+            currentStory.ChooseChoiceIndex(choiceIndex);
+        }
     }
 }
