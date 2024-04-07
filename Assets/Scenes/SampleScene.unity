@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCue: {fileID: 983796172}
-  inkJSON: {fileID: 4900000, guid: 0b40072e45bce79489741c322dbfac4b, type: 3}
+  inkJSON: {fileID: 4900000, guid: 186b3adbce2388e49b0a22cd72441e79, type: 3}
 --- !u!1 &517319335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,7 +1651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCue: {fileID: 245210507}
-  inkJSON: {fileID: 4900000, guid: 0b40072e45bce79489741c322dbfac4b, type: 3}
+  inkJSON: {fileID: 4900000, guid: 369d1f9f2722b4048a26ce0dbe493b44, type: 3}
 --- !u!65 &857757180
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2265,7 +2265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1296517983}
   m_Layer: 0
-  m_Name: NPC (1)
+  m_Name: Homos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
