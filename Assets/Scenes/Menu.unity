@@ -5709,9 +5709,7 @@ MonoBehaviour:
     m_Options:
     - m_Text: Exclusive Fullscreen
       m_Image: {fileID: 0}
-    - m_Text: Windowed
-      m_Image: {fileID: 0}
-    - m_Text: Fullscreen
+    - m_Text: Borderless Fullscreen
       m_Image: {fileID: 0}
     - m_Text: Windowed
       m_Image: {fileID: 0}

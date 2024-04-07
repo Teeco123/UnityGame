@@ -67,21 +67,15 @@ public class Resolutions : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("ScreenMode") == 1)
         {
-            Screen.SetResolution(resolution.width, resolution.height, false);
-
-            Screen.fullScreenMode = FullScreenMode.Windowed;
-        }
-        if (PlayerPrefs.GetInt("ScreenMode") == 2)
-        {
             Screen.SetResolution(resolution.width, resolution.height, true);
 
             Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
         }
-        if (PlayerPrefs.GetInt("ScreenMode") == 3)
+        if (PlayerPrefs.GetInt("ScreenMode") == 2)
         {
             Screen.SetResolution(resolution.width, resolution.height, false);
 
-            Screen.fullScreenMode = FullScreenMode.MaximizedWindow;
+            Screen.fullScreenMode = FullScreenMode.Windowed;
         }
     }
 }
