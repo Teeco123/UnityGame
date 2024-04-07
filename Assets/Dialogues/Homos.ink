@@ -2,12 +2,12 @@ INCLUDE globals.ink
 
 
 #speaker:Homos
-{ piwko == false: -> wybrane | -> nieWybrane }
+{ piwko == false: -> nieWybrane | -> wybrane }
 
 === wybrane ===
-Niestety nie wybrales jeszcze piwka wybierz je u Ziutka.
+Twoje piwko to {wybranePiwko}!
 ->END
 
 === nieWybrane ===
-Twoje piwko to {wybranePiwko}!
+Niestety nie wybrales jeszcze piwka wybierz je u Ziutka.
 ->END
