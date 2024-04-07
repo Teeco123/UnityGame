@@ -7,6 +7,10 @@ using UnityEngine.EventSystems;
 
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Params")]
+    [SerializeField]
+    private float typingSpeed = 0.04f;
+
     [Header("Dialogue UI")]
     [SerializeField]
     private GameObject dialoguePanel;
@@ -26,6 +30,13 @@ public class DialogueManager : MonoBehaviour
     private Story currentStory;
 
     public bool dialogueIsPlaying { get; private set; }
+
+    private bool canContinueToNextLine = false;
+    private Coroutine DisplayLineCoroutine;
+
+    private bool canSkip = false;
+
+    private bool submitSkip;
 
     static DialogueManager instance;
 
@@ -61,11 +72,15 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            submitSkip = true;
+        }
         if (!dialogueIsPlaying)
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (canContinueToNextLine && Input.GetKeyDown(KeyCode.Return))
         {
             ContinueStory();
         }
@@ -93,14 +108,50 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
-            DisplayChoices();
+            if (DisplayLineCoroutine != null)
+            {
+                StopCoroutine(DisplayLineCoroutine);
+            }
+            DisplayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
+
             HandleTags(currentStory.currentTags);
         }
         else
         {
             ExitDialogueMode();
         }
+    }
+
+    private IEnumerator CanSkip()
+    {
+        canSkip = false; //Making sure the variable is false.
+        yield return new WaitForSeconds(0.05f);
+        canSkip = true;
+    }
+
+    private IEnumerator DisplayLine(string line)
+    {
+        dialogueText.text = "";
+        submitSkip = false;
+        canContinueToNextLine = false;
+        HideChoices();
+
+        StartCoroutine(CanSkip());
+
+        foreach (char letter in line.ToCharArray())
+        {
+            if (canSkip && submitSkip)
+            {
+                submitSkip = false;
+                dialogueText.text = line;
+                break;
+            }
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        canContinueToNextLine = true;
+        canSkip = false;
+        DisplayChoices();
     }
 
     private void HandleTags(List<string> currentTags)
@@ -124,6 +175,14 @@ public class DialogueManager : MonoBehaviour
                     Debug.LogWarning("tag is not used now");
                     break;
             }
+        }
+    }
+
+    private void HideChoices()
+    {
+        foreach (GameObject choiceButton in choices)
+        {
+            choiceButton.SetActive(false);
         }
     }
 
@@ -159,6 +218,9 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
-        currentStory.ChooseChoiceIndex(choiceIndex);
+        if (canContinueToNextLine)
+        {
+            currentStory.ChooseChoiceIndex(choiceIndex);
+        }
     }
 }
