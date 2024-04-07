@@ -31,6 +31,8 @@ public class DialogueManager : MonoBehaviour
 
     public bool dialogueIsPlaying { get; private set; }
 
+    private Coroutine DisplayLineCoroutine;
+
     static DialogueManager instance;
 
     private const string SPEAKER_TAG = "speaker";
@@ -97,7 +99,11 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            StartCoroutine(DisplayLine(currentStory.Continue()));
+            if (DisplayLineCoroutine != null)
+            {
+                StopCoroutine(DisplayLineCoroutine);
+            }
+            DisplayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
             DisplayChoices();
             HandleTags(currentStory.currentTags);
         }
