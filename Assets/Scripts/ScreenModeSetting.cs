@@ -26,6 +26,12 @@ public class ScreenModeSetting : MonoBehaviour
         }
         if (index == 1)
         {
+            Screen.SetResolution(resolutions.resolution.width, resolutions.resolution.height, true);
+
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+        }
+        if (index == 2)
+        {
             Screen.SetResolution(
                 resolutions.resolution.width,
                 resolutions.resolution.height,
@@ -33,12 +39,6 @@ public class ScreenModeSetting : MonoBehaviour
             );
 
             Screen.fullScreenMode = FullScreenMode.Windowed;
-        }
-        if (index == 2)
-        {
-            Screen.SetResolution(resolutions.resolution.width, resolutions.resolution.height, true);
-
-            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
         }
     }
 }
