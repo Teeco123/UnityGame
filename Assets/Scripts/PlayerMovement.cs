@@ -23,6 +23,15 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            playerSpeed = 4.0f;
+        }
+        else
+        {
+            playerSpeed = 2.0f;
+        }
+
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         controller.Move(move * Time.deltaTime * playerSpeed);
 
