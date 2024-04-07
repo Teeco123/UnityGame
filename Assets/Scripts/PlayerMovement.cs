@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     private float playerSpeed = 2.0f;
-    private float gravityValue = -9.8f;
+    private float gravityValue = -9.81f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Stopping player when dialogue is playing
         if (DialogueManager.Getinstance().dialogueIsPlaying)
         {
             return;
