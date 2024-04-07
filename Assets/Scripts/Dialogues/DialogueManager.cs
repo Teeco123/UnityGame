@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Ink.Runtime;
+using Ink.UnityIntegration;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,6 +11,10 @@ public class DialogueManager : MonoBehaviour
     [Header("Params")]
     [SerializeField]
     private float typingSpeed = 0.04f;
+
+    [Header("Globals Ink File")]
+    [SerializeField]
+    private InkFile globalsInkFile;
 
     [Header("Dialogue UI")]
     [SerializeField]
@@ -42,6 +47,8 @@ public class DialogueManager : MonoBehaviour
 
     private const string SPEAKER_TAG = "speaker";
 
+    private DialogueVariables dialogueVariables;
+
     private void Awake()
     {
         if (instance != null)
@@ -49,6 +56,8 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("More than one dialogue Manager in the scene");
         }
         instance = this;
+
+        dialogueVariables = new DialogueVariables(globalsInkFile.filePath);
     }
 
     public static DialogueManager Getinstance()
@@ -92,6 +101,8 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
+        dialogueVariables.StartListening(currentStory);
+
         displayNameText.text = "???";
 
         ContinueStory();
@@ -99,6 +110,8 @@ public class DialogueManager : MonoBehaviour
 
     private void ExitDialogueMode()
     {
+        dialogueVariables.StopListening(currentStory);
+
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
