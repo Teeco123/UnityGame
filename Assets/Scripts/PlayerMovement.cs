@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Stopping player when dialogue is playing
         if (DialogueManager.Getinstance().dialogueIsPlaying)
         {
             return;
