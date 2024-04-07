@@ -34,6 +34,10 @@ public class DialogueManager : MonoBehaviour
     private bool canContinueToNextLine = false;
     private Coroutine DisplayLineCoroutine;
 
+    private bool canSkip = false;
+
+    private bool submitSkip;
+
     static DialogueManager instance;
 
     private const string SPEAKER_TAG = "speaker";
@@ -68,6 +72,10 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            submitSkip = true;
+        }
         if (!dialogueIsPlaying)
         {
             return;
@@ -114,19 +122,35 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    private IEnumerator CanSkip()
+    {
+        canSkip = false; //Making sure the variable is false.
+        yield return new WaitForSeconds(0.05f);
+        canSkip = true;
+    }
+
     private IEnumerator DisplayLine(string line)
     {
         dialogueText.text = "";
-
+        submitSkip = false;
         canContinueToNextLine = false;
         HideChoices();
 
+        StartCoroutine(CanSkip());
+
         foreach (char letter in line.ToCharArray())
         {
+            if (canSkip && submitSkip)
+            {
+                submitSkip = false;
+                dialogueText.text = line;
+                break;
+            }
             dialogueText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
         canContinueToNextLine = true;
+        canSkip = false;
         DisplayChoices();
     }
 
