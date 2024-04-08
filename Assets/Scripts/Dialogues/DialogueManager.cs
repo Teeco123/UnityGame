@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Ink.Runtime;
-using Ink.UnityIntegration;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,9 +11,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private float typingSpeed = 0.04f;
 
-    [Header("Globals Ink File")]
+    [Header("Load Globals JSON")]
     [SerializeField]
-    private InkFile globalsInkFile;
+    private TextAsset loadGlobalsJSON;
 
     [Header("Dialogue UI")]
     [SerializeField]
@@ -57,7 +56,7 @@ public class DialogueManager : MonoBehaviour
         }
         instance = this;
 
-        dialogueVariables = new DialogueVariables(globalsInkFile.filePath);
+        dialogueVariables = new DialogueVariables(loadGlobalsJSON);
     }
 
     public static DialogueManager Getinstance()
