@@ -31,4 +31,9 @@ public class DataSavingManager : MonoBehaviour
     }
 
     public void SaveGame() { }
+
+    private void OnApplicationQuit()
+    {
+        SaveGame();
+    }
 }
