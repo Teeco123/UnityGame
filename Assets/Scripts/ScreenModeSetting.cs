@@ -20,25 +20,15 @@ public class ScreenModeSetting : MonoBehaviour
         PlayerPrefs.SetInt("ScreenMode", index);
         if (index == 0)
         {
-            Screen.SetResolution(resolutions.resolution.width, resolutions.resolution.height, true);
-
-            Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+            Screen.SetResolution(resolutions.resolution.width, resolutions.resolution.height, FullScreenMode.ExclusiveFullScreen);
         }
         if (index == 1)
         {
-            Screen.SetResolution(resolutions.resolution.width, resolutions.resolution.height, true);
-
-            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+            Screen.SetResolution(resolutions.resolution.width, resolutions.resolution.height, FullScreenMode.FullScreenWindow);
         }
         if (index == 2)
         {
-            Screen.SetResolution(
-                resolutions.resolution.width,
-                resolutions.resolution.height,
-                false
-            );
-
-            Screen.fullScreenMode = FullScreenMode.Windowed;
+            Screen.SetResolution(resolutions.resolution.width, resolutions.resolution.height, FullScreenMode.Windowed);
         }
     }
 }
