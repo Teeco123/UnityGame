@@ -2243,18 +2243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typingSpeed: 0.04
-  globalsInkFile:
-    inkAsset: {fileID: 102900000, guid: d6e582b2aa4aa8745b64ed57e1a1c5a0, type: 3}
-    jsonAssetDirectory: {fileID: 0}
-    jsonAsset: {fileID: 0}
-    unhandledCompileErrors: []
-    recursiveIncludeErrorPaths: []
-    errors: []
-    warnings: []
-    todos: []
-    masterInkAssets: []
-    localIncludePaths: []
-    includes: []
+  loadGlobalsJSON: {fileID: 4900000, guid: 84f4c5737d09d3d4da928ba122fd6c87, type: 3}
   dialoguePanel: {fileID: 987425115}
   dialogueText: {fileID: 1028458541}
   displayNameText: {fileID: 1778338756}
