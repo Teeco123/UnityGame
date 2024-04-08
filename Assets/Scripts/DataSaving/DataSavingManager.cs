@@ -22,7 +22,13 @@ public class DataSavingManager : MonoBehaviour
         this.gameData = new GameData();
     }
 
-    public void LoadGame() { }
+    public void LoadGame()
+    {
+        if (this.gameData == null)
+        {
+            NewGame();
+        }
+    }
 
     public void SaveGame() { }
 }
