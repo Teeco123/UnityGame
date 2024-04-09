@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : MonoBehaviour, SavingInterface
 {
     [Header("Params")]
     [SerializeField]
@@ -55,8 +55,6 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("More than one dialogue Manager in the scene");
         }
         instance = this;
-
-        dialogueVariables = new DialogueVariables(loadGlobalsJSON);
     }
 
     public static DialogueManager Getinstance()
@@ -234,5 +232,18 @@ public class DialogueManager : MonoBehaviour
         {
             currentStory.ChooseChoiceIndex(choiceIndex);
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        // now we can create a new DialogueVariables object that's being initialized based on any loaded data
+        dialogueVariables = new DialogueVariables(loadGlobalsJSON, data.currentVariables);
+    }
+
+    public void SaveData(GameData data)
+    {
+        // when we save the game, we get the current global state from our dialogue variables and then save that to our data
+        string globalStateJson = dialogueVariables.GetGlobalVariablesStateJson();
+        data.currentVariables = globalStateJson;
     }
 }

@@ -9,9 +9,15 @@ public class DialogueVariables : MonoBehaviour
 {
     private Dictionary<string, Ink.Runtime.Object> variables;
 
-    public DialogueVariables(TextAsset loadGlobalsJSON)
+    private Story globalVariablesStory;
+
+    public DialogueVariables(TextAsset loadGlobalsJSON, string globalStateJson)
     {
-        Story globalVariablesStory = new Story(loadGlobalsJSON.text);
+        globalVariablesStory = new Story(loadGlobalsJSON.text);
+        if (!globalStateJson.Equals(""))
+        {
+            globalVariablesStory.state.LoadJson(globalStateJson);
+        }
 
         variables = new Dictionary<string, Ink.Runtime.Object>();
         foreach (string name in globalVariablesStory.variablesState)
@@ -22,6 +28,12 @@ public class DialogueVariables : MonoBehaviour
             variables.Add(name, value);
             Debug.Log("Initialized global dialogue variable: " + name + " = " + value);
         }
+    }
+
+    public string GetGlobalVariablesStateJson()
+    {
+        VariablesToStory(globalVariablesStory);
+        return globalVariablesStory.state.ToJson();
     }
 
     private void VariableChanged(string name, Ink.Runtime.Object value)
