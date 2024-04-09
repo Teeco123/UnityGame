@@ -6,5 +6,5 @@ public interface SavingInterface
 {
     void LoadData(GameData data);
 
-    void SaveData(ref GameData data);
+    void SaveData(GameData data);
 }

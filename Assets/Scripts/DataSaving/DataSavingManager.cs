@@ -54,7 +54,7 @@ public class DataSavingManager : MonoBehaviour
     {
         foreach (SavingInterface savingInterfaceObj in savingInterfaceObjects)
         {
-            savingInterfaceObj.SaveData(ref gameData);
+            savingInterfaceObj.SaveData(gameData);
         }
 
         dataHandler.Save(gameData);

@@ -240,7 +240,7 @@ public class DialogueManager : MonoBehaviour, SavingInterface
         dialogueVariables = new DialogueVariables(loadGlobalsJSON, data.currentVariables);
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         // when we save the game, we get the current global state from our dialogue variables and then save that to our data
         string globalStateJson = dialogueVariables.GetGlobalVariablesStateJson();
