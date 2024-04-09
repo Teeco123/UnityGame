@@ -6,9 +6,11 @@ using UnityEngine;
 public class GameData
 {
     public Vector3 playerPosition;
+    public string currentVariables;
 
     public GameData()
     {
         playerPosition = Vector3.zero;
+        currentVariables = "";
     }
 }
