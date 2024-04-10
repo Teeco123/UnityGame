@@ -9,10 +9,13 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
     private float playerSpeed = 2.0f;
     private float gravityValue = -9.81f;
 
+    public VectorValue startingPosition;
+
     // Start is called before the first frame update
     void Start()
     {
         controller = gameObject.AddComponent<CharacterController>();
+        transform.position = startingPosition.initialValue;
     }
 
     // Update is called once per frame
