@@ -26,4 +26,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         target.SetActive(false);
     }
+    private void Start()
+    {
+        Resume();
+    }
 }
