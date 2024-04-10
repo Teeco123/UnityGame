@@ -3268,7 +3268,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 3f66612db28211540bdd8dfb49626da1, type: 2}
-  clip: {fileID: 0}
+  Master: {fileID: 512229123}
+  Music: {fileID: 316756546}
+  Fx: {fileID: 1876551239}
+  Dialogs: {fileID: 453025138}
 --- !u!1 &615089249
 GameObject:
   m_ObjectHideFlags: 0
