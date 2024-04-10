@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scene2
-  playerPosition: {x: 0, y: 0, z: 0}
+  playerPosition: {x: -10, y: 0, z: 10}
   playerStorage: {fileID: 11400000, guid: b78ebb6a950d5c74d886dddf22352807, type: 2}
 --- !u!64 &216398083
 MeshCollider:
