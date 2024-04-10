@@ -8,14 +8,17 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && target.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Resume();
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Time.timeScale = 0f;
-            target.SetActive(true);
+            if (target.activeSelf)
+            {
+                Resume();
+            }
+            else
+            {
+                Time.timeScale = 0f;
+                target.SetActive(true);
+            }
         }
     }
     public void Resume()
