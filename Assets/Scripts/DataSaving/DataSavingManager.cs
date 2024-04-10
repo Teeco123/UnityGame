@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DataSavingManager : MonoBehaviour
 {
@@ -21,18 +22,36 @@ public class DataSavingManager : MonoBehaviour
             Debug.LogError("There is Data Saving Manager already!");
         }
         instance = this;
+
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
-        this.savingInterfaceObjects = FindAllSavingInterfaceObjects();
-        LoadGame();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
+    }
+
+    public void OnSceneUnloaded(Scene scene)
+    {
+        SaveGame();
     }
 
     public void NewGame()
     {
         this.gameData = new GameData();
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        this.savingInterfaceObjects = FindAllSavingInterfaceObjects();
+        LoadGame();
     }
 
     public void LoadGame()
