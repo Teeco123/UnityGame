@@ -7,8 +7,15 @@ public class SceneTransition : MonoBehaviour
 {
     public string sceneToLoad;
     public bool canEnter;
+
+    public static bool isEntering { get; private set; }
     public Vector3 playerPosition;
     public VectorValue playerStorage;
+
+    private void Start()
+    {
+        isEntering = false;
+    }
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -26,6 +33,7 @@ public class SceneTransition : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && canEnter)
         {
+            isEntering = true;
             playerStorage.initialValue = playerPosition;
             SceneManager.LoadSceneAsync(sceneToLoad);
         }

@@ -26,7 +26,6 @@ public class DialogueVariables : MonoBehaviour
                 name
             );
             variables.Add(name, value);
-            Debug.Log("Initialized global dialogue variable: " + name + " = " + value);
         }
     }
 

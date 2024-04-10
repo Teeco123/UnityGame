@@ -22,7 +22,6 @@ public class DataSavingManager : MonoBehaviour
             Debug.LogError("There is Data Saving Manager already!");
         }
         instance = this;
-
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
     }
 
@@ -51,6 +50,8 @@ public class DataSavingManager : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         this.savingInterfaceObjects = FindAllSavingInterfaceObjects();
+
+        //This needs to be here
         LoadGame();
     }
 
