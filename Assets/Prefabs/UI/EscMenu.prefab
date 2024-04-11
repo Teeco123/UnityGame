@@ -91,7 +91,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 20242001112694347}
+      - m_Target: {fileID: 7135087452843076903}
         m_TargetAssemblyTypeName: Ustawienia, Assembly-CSharp
         m_MethodName: SetVolumeMusic
         m_Mode: 0
@@ -811,13 +811,25 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 20242001112694347}
+      - m_Target: {fileID: 7135087452843076903}
         m_TargetAssemblyTypeName: Ustawienia, Assembly-CSharp
         m_MethodName: SetVolumeGlobal
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Ustawienia, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3338,7 +3350,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7114513755157746596}
-  - component: {fileID: 20242001112694347}
   m_Layer: 5
   m_Name: "G\u0142o\u015Bno\u015B\u0107"
   m_TagString: Untagged
@@ -3371,19 +3382,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &20242001112694347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3276653132951290005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef36db1a2e74392438f686132062f6ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 3f66612db28211540bdd8dfb49626da1, type: 2}
 --- !u!1 &3336237739110942897
 GameObject:
   m_ObjectHideFlags: 0
@@ -4778,7 +4776,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 20242001112694347}
+      - m_Target: {fileID: 7135087452843076903}
         m_TargetAssemblyTypeName: Ustawienia, Assembly-CSharp
         m_MethodName: SetVolumeFx
         m_Mode: 0
@@ -5461,6 +5459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4726834295099758812}
   - component: {fileID: 4726613133291720419}
+  - component: {fileID: 7135087452843076903}
   m_Layer: 5
   m_Name: EscMenu
   m_TagString: Untagged
@@ -5504,6 +5503,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 834181409185409212}
+--- !u!114 &7135087452843076903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6363014464009659780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef36db1a2e74392438f686132062f6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 3f66612db28211540bdd8dfb49626da1, type: 2}
+  Master: {fileID: 726896899189444124}
+  Music: {fileID: 1398150391265014111}
+  Fx: {fileID: 106705029118702508}
+  Dialogs: {fileID: 7770019727108469452}
 --- !u!1 &6451463613286699920
 GameObject:
   m_ObjectHideFlags: 0
@@ -6330,7 +6346,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 20242001112694347}
+      - m_Target: {fileID: 7135087452843076903}
         m_TargetAssemblyTypeName: Ustawienia, Assembly-CSharp
         m_MethodName: SetVolumeDialog
         m_Mode: 0
