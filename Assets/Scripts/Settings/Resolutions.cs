@@ -59,17 +59,19 @@ public class Resolutions : MonoBehaviour
     public void SetResolution(int resolutionIndex)
     {
         resolution = filteredResolutions[resolutionIndex];
-        if (PlayerPrefs.GetInt("ScreenMode") == 0)
+        switch(PlayerPrefs.GetInt("ScreenMode"))
         {
-            Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.ExclusiveFullScreen);
-        }
-        if (PlayerPrefs.GetInt("ScreenMode") == 1)
-        {
-            Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.FullScreenWindow);
-        }
-        if (PlayerPrefs.GetInt("ScreenMode") == 2)
-        {
-            Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.Windowed);
+            case 0:
+                Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.ExclusiveFullScreen);
+                break;
+           
+            case 1:
+                Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.FullScreenWindow);
+                break;
+            
+            case 2:
+                Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.Windowed);
+                break;
         }
     }
 }
