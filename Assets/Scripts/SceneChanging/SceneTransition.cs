@@ -31,7 +31,7 @@ public class SceneTransition : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && canEnter)
+        if (Input.GetKeyDown(KeyCode.E) && canEnter && !PauseMenu.menuActive)
         {
             isEntering = true;
             playerStorage.initialValue = playerPosition;
