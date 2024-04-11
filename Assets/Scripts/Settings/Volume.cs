@@ -12,19 +12,31 @@ public class Ustawienia : MonoBehaviour
 
     private void Start()
     {
-        Master.value = PlayerPrefs.GetFloat("Master");
-        audioMixer.SetFloat("Master", PlayerPrefs.GetFloat("Master"));
+        string[] nazwakanau = { "Master", "Music", "Fx", "Dialogs" };
 
-        Music.value = PlayerPrefs.GetFloat("Music");
-        audioMixer.SetFloat("Music", PlayerPrefs.GetFloat("Music"));
+        foreach (string s in nazwakanau)
+        {
+            float storedValue = PlayerPrefs.GetFloat(s);
+            audioMixer.SetFloat(s, storedValue);
 
-        Fx.value = PlayerPrefs.GetFloat("Fx");
-        audioMixer.SetFloat("Fx", PlayerPrefs.GetFloat("Fx"));
-
-        Dialogs.value = PlayerPrefs.GetFloat("Dialogs");
-        audioMixer.SetFloat("Dialogs", PlayerPrefs.GetFloat("Dialogs"));
-
+            switch (s)
+            {
+                case "Master":
+                    Master.value = storedValue;
+                    break;
+                case "Music":
+                    Music.value = storedValue;
+                    break;
+                case "Fx":
+                    Fx.value = storedValue;
+                    break;
+                case "Dialogs":
+                    Dialogs.value = storedValue;
+                    break;
+            }
+        }
     }
+
     public void SetVolumeGlobal(float volume)
     {
         
