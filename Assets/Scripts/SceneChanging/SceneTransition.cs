@@ -11,6 +11,8 @@ public class SceneTransition : MonoBehaviour
     public static bool isEntering { get; private set; }
     public Vector3 playerPosition;
     public VectorValue playerStorage;
+    public Animator transition;
+    public float transitionTime;
 
     private void Start()
     {
@@ -33,9 +35,17 @@ public class SceneTransition : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && canEnter && !PauseMenu.menuActive)
         {
-            isEntering = true;
-            playerStorage.initialValue = playerPosition;
-            SceneManager.LoadSceneAsync(sceneToLoad);
+            StartCoroutine(LoadLevel());
         }
+    }
+    IEnumerator LoadLevel()
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        isEntering = true;
+        playerStorage.initialValue = playerPosition;
+        SceneManager.LoadSceneAsync(sceneToLoad);
     }
 }
