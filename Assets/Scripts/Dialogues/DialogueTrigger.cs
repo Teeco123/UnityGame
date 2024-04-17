@@ -21,7 +21,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             triggerCue.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !PauseMenu.menuActive)
             {
                 DialogueManager.Getinstance().EnterDialogueMode(inkJSON);
             }
