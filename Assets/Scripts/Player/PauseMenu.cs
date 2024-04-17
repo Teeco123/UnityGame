@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject target;
+    public GameObject target, options, volume, resolution, main;
 
     public static bool menuActive { get; private set; }
 
@@ -30,6 +28,10 @@ public class PauseMenu : MonoBehaviour
         menuActive = false;
         Time.timeScale = 1f;
         target.SetActive(false);
+        options.SetActive(false);
+        volume.SetActive(false);
+        resolution.SetActive(false);
+        main.SetActive(true);
     }
 
     private void Start()
