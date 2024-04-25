@@ -17,7 +17,12 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 menuActive = true;
+
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+
                 Time.timeScale = 0f;
+
                 target.SetActive(true);
             }
         }
@@ -26,7 +31,12 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         menuActive = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         Time.timeScale = 1f;
+
         target.SetActive(false);
         options.SetActive(false);
         volume.SetActive(false);
