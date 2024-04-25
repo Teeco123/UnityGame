@@ -1,14 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour, SavingInterface
 {
     private CharacterController controller;
-    private Vector3 playerVelocity;
-    private float playerSpeed = 2.0f;
-    private float gravityValue = -9.81f;
+    private Vector3 velocity;
+    private float speed = 2.0f;
+    private float gravity = -9.81f;
 
     public VectorValue startingPosition;
 
@@ -32,18 +30,23 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            playerSpeed = 4.0f;
+            speed = 4.0f;
         }
         else
         {
-            playerSpeed = 2.0f;
+            speed = 2.0f;
         }
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        controller.Move(move * Time.deltaTime * playerSpeed);
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
 
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        controller.Move(move * speed * Time.deltaTime);
+
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.F5))
         {
