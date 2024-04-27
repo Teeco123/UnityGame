@@ -1,25 +1,23 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [Header("Trigger Cue")]
+    [Header("Trigger UI")]
     [SerializeField]
-    private GameObject triggerCue;
+    private GameObject triggerUI;
 
     [Header("Ink JSON")]
     [SerializeField]
     private TextAsset inkJSON;
 
-    private bool playerInRange;
+    private bool canTalk;
 
     private void Update()
     {
-        if (playerInRange)
+        if (canTalk)
         {
-            triggerCue.SetActive(true);
+            triggerUI.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.E) && !PauseMenu.menuActive)
             {
@@ -28,29 +26,13 @@ public class DialogueTrigger : MonoBehaviour
         }
         else
         {
-            triggerCue.SetActive(false);
+            triggerUI.SetActive(false);
         }
     }
 
     private void Awake()
     {
-        playerInRange = false;
-        triggerCue.SetActive(false);
-    }
-
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.gameObject.tag == "Player")
-        {
-            playerInRange = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider collider)
-    {
-        if (collider.gameObject.tag == "Player")
-        {
-            playerInRange = false;
-        }
+        canTalk = false;
+        triggerUI.SetActive(false);
     }
 }
