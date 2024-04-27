@@ -7,32 +7,59 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField]
     private GameObject triggerUI;
 
-    [Header("Ink JSON")]
     [SerializeField]
-    private TextAsset inkJSON;
+    private TextMeshProUGUI characterNameTrigger;
 
-    private bool canTalk;
+    [Header("Raycasts")]
+    [SerializeField]
+    private Camera playerCamera;
+
+    [SerializeField]
+    private float raycastRange;
 
     private void Update()
     {
-        if (canTalk)
-        {
-            triggerUI.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.E) && !PauseMenu.menuActive)
-            {
-                DialogueManager.Getinstance().EnterDialogueMode(inkJSON);
-            }
-        }
-        else
-        {
-            triggerUI.SetActive(false);
-        }
+        CheckNPC();
     }
 
     private void Awake()
     {
-        canTalk = false;
         triggerUI.SetActive(false);
+    }
+
+    private void CheckNPC()
+    {
+        RaycastHit hit;
+        if (
+            Physics.Raycast(
+                playerCamera.transform.position,
+                playerCamera.transform.forward,
+                out hit,
+                raycastRange
+            )
+        )
+        {
+            DialogueNPC npc = hit.transform.GetComponent<DialogueNPC>();
+            if (hit.transform.CompareTag("npc"))
+            {
+                Debug.Log("found npc");
+                triggerUI.SetActive(true);
+                characterNameTrigger.text = hit.transform.name;
+                if (Input.GetKeyDown(KeyCode.E) && !PauseMenu.menuActive)
+                {
+                    npc.Talk();
+                }
+            }
+            else
+            {
+                Debug.Log("npc not found");
+                triggerUI.SetActive(false);
+            }
+        }
+        else
+        {
+            Debug.Log("npc not found");
+            triggerUI.SetActive(false);
+        }
     }
 }
