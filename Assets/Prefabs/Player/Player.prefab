@@ -319,7 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0e7958e30f6b245975d00bc62cebbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerUI: {fileID: 0}
+  triggerUI: {fileID: 1721678897406437432, guid: 9cbddca51378a0748805b8810d9b63cf,
+    type: 3}
   characterNameTrigger: {fileID: 0}
   playerCamera: {fileID: 500712101309553494}
-  raycastRange: 10
+  raycastRange: 5
