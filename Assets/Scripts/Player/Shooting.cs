@@ -92,12 +92,6 @@ public class Shooting : MonoBehaviour
             )
         )
         {
-            Debug.DrawRay(
-                muzzle.transform.position,
-                playerCamera.transform.forward,
-                Color.red,
-                100
-            );
             Enemy enemy = hit.transform.GetComponent<Enemy>();
             if (enemy != null)
             {
