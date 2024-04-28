@@ -9,6 +9,8 @@ public class Shooting : MonoBehaviour
 
     public Camera playerCamera;
 
+    public ParticleSystem muzzleFlash;
+
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +23,7 @@ public class Shooting : MonoBehaviour
     void Shoot()
     {
         RaycastHit hit;
+        muzzleFlash.Play();
         if (
             Physics.Raycast(
                 playerCamera.transform.position,
