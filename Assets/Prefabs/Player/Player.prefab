@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 2862221226765004070}
   - component: {fileID: 1158046294364298375}
   - component: {fileID: 8892612942640474637}
-  - component: {fileID: 1709962029126830080}
+  - component: {fileID: 7930025668036153734}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -349,6 +349,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 8229066279911119940}
   mouseSensitivity: 100
+--- !u!114 &7930025668036153734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972257401541677578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0e7958e30f6b245975d00bc62cebbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerUI: {fileID: 0}
+  characterNameTrigger: {fileID: 0}
+  playerCamera: {fileID: 500712101309553494}
+  raycastRange: 5
 --- !u!1001 &4013968548426095863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -435,7 +451,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7385708db8bde684b8a022c50f2ac0c0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3644226587656367665}
   m_SourcePrefab: {fileID: 100100000, guid: 7385708db8bde684b8a022c50f2ac0c0, type: 3}
 --- !u!4 &3476429670322961180 stripped
 Transform:
@@ -443,3 +463,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4013968548426095863}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4284351448294760870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7385708db8bde684b8a022c50f2ac0c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 4013968548426095863}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3644226587656367665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4284351448294760870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa93a26dc2c92e348819d521e81a36d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  range: 50
+  playerCamera: {fileID: 500712101309553494}

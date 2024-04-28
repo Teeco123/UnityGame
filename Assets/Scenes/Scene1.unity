@@ -297,12 +297,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8721601275503541036}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &395860388 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 500712101309553494, guid: 009d1ac76215dc04faf0fa02198b8b28,
-    type: 3}
-  m_PrefabInstance: {fileID: 2545503109939855243}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +638,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705660333}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &782919161 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1606522156170323839, guid: 9cbddca51378a0748805b8810d9b63cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 970409427}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &825744820 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5430058164983605452, guid: 22d1cfbe2a02d8d4392fbfa9a9bff6c7,
@@ -927,27 +933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f607cddf079f634583b1c960dcd9d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1119130916 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4284351448294760870, guid: 009d1ac76215dc04faf0fa02198b8b28,
-    type: 3}
-  m_PrefabInstance: {fileID: 2545503109939855243}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1119130918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119130916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa93a26dc2c92e348819d521e81a36d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  range: 50
-  playerCamera: {fileID: 395860388}
 --- !u!1 &1397075308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,11 +1027,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-
-  - {fileID: 1485064908}
   - {fileID: 987425116}
-  - {fileID: 1818594610}
   - {fileID: 1834069657}
+  - {fileID: 970409428}
+  - {fileID: 1818594610}
+  - {fileID: 1485064908}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1391,12 +1376,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679461809}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!20 &1707986715 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 500712101309553494, guid: 009d1ac76215dc04faf0fa02198b8b28,
-    type: 3}
-  m_PrefabInstance: {fileID: 2545503109939855243}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1778338756 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9217458267062180373, guid: 115706dd93d17bf449688c1b166792cb,
@@ -1525,12 +1504,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2013472758 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8438059606294189215, guid: 009d1ac76215dc04faf0fa02198b8b28,
-    type: 3}
-  m_PrefabInstance: {fileID: 2545503109939855243}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2134581093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,61 +1618,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1709962029126830080, guid: 009d1ac76215dc04faf0fa02198b8b28,
-        type: 3}
-      propertyPath: triggerUI
-      value: 
-      objectReference: {fileID: 1644137185}
-    - target: {fileID: 1709962029126830080, guid: 009d1ac76215dc04faf0fa02198b8b28,
-        type: 3}
-      propertyPath: raycastRange
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1709962029126830080, guid: 009d1ac76215dc04faf0fa02198b8b28,
-        type: 3}
-      propertyPath: characterNameTrigger
-      value: 
-      objectReference: {fileID: 1370440414}
     - target: {fileID: 3214005452833856314, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6979825490554951719, guid: 009d1ac76215dc04faf0fa02198b8b28,
+    - target: {fileID: 7930025668036153734, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
-      propertyPath: jump
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6979825490554951719, guid: 009d1ac76215dc04faf0fa02198b8b28,
-        type: 3}
-      propertyPath: speed
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6979825490554951719, guid: 009d1ac76215dc04faf0fa02198b8b28,
-        type: 3}
-      propertyPath: gravity
-      value: -19.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 6979825490554951719, guid: 009d1ac76215dc04faf0fa02198b8b28,
-        type: 3}
-      propertyPath: walkSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6979825490554951719, guid: 009d1ac76215dc04faf0fa02198b8b28,
-        type: 3}
-      propertyPath: groundCheck
+      propertyPath: triggerUI
       value: 
-      objectReference: {fileID: 2013472758}
-    - target: {fileID: 6979825490554951719, guid: 009d1ac76215dc04faf0fa02198b8b28,
+      objectReference: {fileID: 1644137185}
+    - target: {fileID: 7930025668036153734, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
-      propertyPath: sprintSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6979825490554951719, guid: 009d1ac76215dc04faf0fa02198b8b28,
-        type: 3}
-      propertyPath: groundMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
+      propertyPath: characterNameTrigger
+      value: 
+      objectReference: {fileID: 782919161}
     - target: {fileID: 8229066279911119940, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1753,11 +1686,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4284351448294760870, guid: 009d1ac76215dc04faf0fa02198b8b28,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1119130918}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 009d1ac76215dc04faf0fa02198b8b28, type: 3}
 --- !u!1001 &2838971969884312199
 PrefabInstance:
@@ -1776,7 +1705,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerCamera
       value: 
-      objectReference: {fileID: 1707986715}
+      objectReference: {fileID: 0}
     - target: {fileID: 4442886620833560130, guid: d6cabbd53824b0e4a94fe06dd5f8423b,
         type: 3}
       propertyPath: raycastRange
@@ -1786,7 +1715,7 @@ PrefabInstance:
         type: 3}
       propertyPath: characterNameTrigger
       value: 
-      objectReference: {fileID: 1370440414}
+      objectReference: {fileID: 0}
     - target: {fileID: 4558405606837381781, guid: d6cabbd53824b0e4a94fe06dd5f8423b,
         type: 3}
       propertyPath: m_Name
@@ -2106,7 +2035,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerCamera
       value: 
-      objectReference: {fileID: 1707986715}
+      objectReference: {fileID: 0}
     - target: {fileID: 8716475663202793395, guid: 4a194882295363141aef4526f52659c2,
         type: 3}
       propertyPath: raycastRange
@@ -2116,7 +2045,7 @@ PrefabInstance:
         type: 3}
       propertyPath: characterNameTrigger
       value: 
-      objectReference: {fileID: 1370440414}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5928325733785098653, guid: 4a194882295363141aef4526f52659c2, type: 3}
@@ -2273,7 +2202,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerCamera
       value: 
-      objectReference: {fileID: 1707986715}
+      objectReference: {fileID: 0}
     - target: {fileID: 5872630694845679380, guid: c03d180f9556c4649864bdf4f35f6be1,
         type: 3}
       propertyPath: raycastRange
@@ -2283,7 +2212,7 @@ PrefabInstance:
         type: 3}
       propertyPath: characterNameTrigger
       value: 
-      objectReference: {fileID: 1370440414}
+      objectReference: {fileID: 0}
     - target: {fileID: 7304996790390446555, guid: c03d180f9556c4649864bdf4f35f6be1,
         type: 3}
       propertyPath: m_LocalPosition.x
