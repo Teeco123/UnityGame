@@ -730,6 +730,12 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 5877141776975497192}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &898093719 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5704089836991481039, guid: 009d1ac76215dc04faf0fa02198b8b28,
+    type: 3}
+  m_PrefabInstance: {fileID: 2545503109939855243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &970409427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1101,11 +1107,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1485064908}
   - {fileID: 987425116}
   - {fileID: 1834069657}
   - {fileID: 970409428}
   - {fileID: 1818594610}
+  - {fileID: 662119523}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1608,10 +1614,40 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2549506277513206444, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: m_Name
+      value: MuzzleFlash
+      objectReference: {fileID: 0}
     - target: {fileID: 3214005452833856314, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644226587656367665, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: fireRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644226587656367665, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: weaponType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644226587656367665, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: muzzleFlash
+      value: 
+      objectReference: {fileID: 898093719}
+    - target: {fileID: 3644226587656367665, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: impactEffect
+      value: 
+      objectReference: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
+    - target: {fileID: 5704089836991481039, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: LightsModule.light
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7930025668036153734, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
