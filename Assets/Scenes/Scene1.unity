@@ -1044,8 +1044,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 165a428adf892ef4b839c1b421b8358d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 1
-  smooth: 10
+  amount: 0.02
+  maxAmount: 0.06
+  smoothAmount: 6
+  rotationAmount: 4
+  maxRotationAmount: 5
+  smoothRotation: 12
+  rotationX: 1
+  rotationY: 1
+  rotationZ: 1
 --- !u!1 &1397075308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,7 +1657,7 @@ PrefabInstance:
     - target: {fileID: 984854894741309821, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1501689855217512374, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
@@ -1700,7 +1707,7 @@ PrefabInstance:
     - target: {fileID: 4284351448294760870, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5704089836991481039, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
