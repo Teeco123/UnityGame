@@ -5,8 +5,17 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
 {
     private CharacterController controller;
     private Vector3 velocity;
-    private float speed = 2.0f;
-    private float gravity = -9.81f;
+    private float speed;
+    public float walkSpeed = 2f;
+    public float sprintSpeed = 4f;
+    public float gravity = -9.81f;
+    public float jump = 3f;
+
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+
+    bool isGrounded;
 
     public VectorValue startingPosition;
 
@@ -28,13 +37,11 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
             return;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if (isGrounded && velocity.y < 0)
         {
-            speed = 4.0f;
-        }
-        else
-        {
-            speed = 2.0f;
+            velocity.y = -2f;
         }
 
         float x = Input.GetAxis("Horizontal");
@@ -44,9 +51,22 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
 
         controller.Move(move * speed * Time.deltaTime);
 
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jump * -2f * gravity);
+        }
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = sprintSpeed;
+        }
+        else
+        {
+            speed = walkSpeed;
+        }
 
         if (Input.GetKeyDown(KeyCode.F5))
         {
