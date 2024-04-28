@@ -23,6 +23,7 @@ public class Shooting : MonoBehaviour
     private WeaponType weaponType;
 
     public Camera playerCamera;
+    public Transform muzzle;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
 
@@ -84,7 +85,7 @@ public class Shooting : MonoBehaviour
 
         if (
             Physics.Raycast(
-                playerCamera.transform.position,
+                muzzle.transform.position,
                 playerCamera.transform.forward,
                 out hit,
                 range
