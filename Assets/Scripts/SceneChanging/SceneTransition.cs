@@ -9,6 +9,7 @@ public class SceneTransition : MonoBehaviour
     public bool canEnter;
 
     public static bool isEntering { get; private set; }
+    public static bool triggeredEnter { get; private set; }
     public Vector3 playerPosition;
     public VectorValue playerStorage;
     public Animator transition;
@@ -17,6 +18,7 @@ public class SceneTransition : MonoBehaviour
     private void Start()
     {
         isEntering = false;
+        triggeredEnter = false;
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -35,9 +37,11 @@ public class SceneTransition : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && canEnter && !PauseMenu.menuActive)
         {
+            triggeredEnter = true;
             StartCoroutine(LoadLevel());
         }
     }
+
     IEnumerator LoadLevel()
     {
         transition.SetTrigger("Start");
@@ -45,6 +49,7 @@ public class SceneTransition : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
 
         isEntering = true;
+
         playerStorage.initialValue = playerPosition;
         SceneManager.LoadSceneAsync(sceneToLoad);
     }
