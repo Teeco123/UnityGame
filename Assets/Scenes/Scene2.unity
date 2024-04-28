@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18387155, g: 0.22901887, b: 0.30311444, a: 1}
+  m_IndirectSpecularColor: {r: 0.18387134, g: 0.22901843, b: 0.3031135, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1108,7 +1108,7 @@ GameObject:
   - component: {fileID: 1208730698}
   - component: {fileID: 1208730697}
   - component: {fileID: 1208730696}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
