@@ -10037,6 +10037,8 @@ MonoBehaviour:
   rotationAmount: 2
   maxRotationAmount: 4
   smoothRotation: 4
+  walkSway: 0.1
+  smoothWalkSway: 1
   rotationX: 1
   rotationY: 1
   rotationZ: 1
