@@ -435,12 +435,6 @@ Transform:
   - {fileID: 699640673}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &659377854 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4811001251277534218, guid: 009d1ac76215dc04faf0fa02198b8b28,
-    type: 3}
-  m_PrefabInstance: {fileID: 2545503109939855243}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &699640673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3171716387844392413, guid: 49594e90f657a2c4d9f599856a634c66,
@@ -1340,6 +1334,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2013472758 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8438059606294189215, guid: 009d1ac76215dc04faf0fa02198b8b28,
+    type: 3}
+  m_PrefabInstance: {fileID: 2545503109939855243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2134581093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,7 +1498,7 @@ PrefabInstance:
         type: 3}
       propertyPath: groundCheck
       value: 
-      objectReference: {fileID: 659377854}
+      objectReference: {fileID: 2013472758}
     - target: {fileID: 6979825490554951719, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
       propertyPath: sprintSpeed
