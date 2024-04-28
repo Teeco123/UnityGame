@@ -42,7 +42,6 @@ public class DialogueTrigger : MonoBehaviour
             DialogueNPC npc = hit.transform.GetComponent<DialogueNPC>();
             if (hit.transform.CompareTag("npc"))
             {
-                Debug.Log("found npc");
                 triggerUI.SetActive(true);
                 characterNameTrigger.text = hit.transform.name;
                 if (Input.GetKeyDown(KeyCode.E) && !PauseMenu.menuActive)
@@ -52,13 +51,11 @@ public class DialogueTrigger : MonoBehaviour
             }
             else
             {
-                Debug.Log("npc not found");
                 triggerUI.SetActive(false);
             }
         }
         else
         {
-            Debug.Log("npc not found");
             triggerUI.SetActive(false);
         }
     }
