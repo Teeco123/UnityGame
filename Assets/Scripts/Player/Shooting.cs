@@ -8,6 +8,11 @@ public class Shooting : MonoBehaviour
     public float range = 50;
     public float fireRate = 15;
 
+    public int maxAmmo = 30;
+    public int currentAmmo;
+    public float reloadTime = 1f;
+    private bool isReloading = false;
+
     public enum WeaponType
     {
         singleFire,
@@ -23,9 +28,28 @@ public class Shooting : MonoBehaviour
 
     private float nextTimeToFire = 0f;
 
-    // Update is called once per frame
+    void Start()
+    {
+        currentAmmo = maxAmmo;
+    }
+
+    void OnEnable()
+    {
+        isReloading = false;
+    }
+
     void Update()
     {
+        if (isReloading)
+        {
+            return;
+        }
+
+        if (currentAmmo <= 0)
+        {
+            StartCoroutine(Reload());
+        }
+
         if (weaponType == WeaponType.Automatic)
         {
             if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
@@ -44,10 +68,20 @@ public class Shooting : MonoBehaviour
         }
     }
 
+    IEnumerator Reload()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(reloadTime);
+        currentAmmo = maxAmmo;
+        isReloading = false;
+    }
+
     void Shoot()
     {
-        RaycastHit hit;
         muzzleFlash.Play();
+        currentAmmo--;
+        RaycastHit hit;
+
         if (
             Physics.Raycast(
                 playerCamera.transform.position,
