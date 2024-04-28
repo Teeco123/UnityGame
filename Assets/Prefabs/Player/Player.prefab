@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 2862221226765004070}
   - component: {fileID: 1158046294364298375}
   - component: {fileID: 8892612942640474637}
+  - component: {fileID: 1709962029126830080}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -307,34 +308,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 8229066279911119940}
   mouseSensitivity: 100
---- !u!1 &9219477920442667931
-GameObject:
+--- !u!114 &1709962029126830080
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4811001251277534218}
-  m_Layer: 0
-  m_Name: GroundCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4811001251277534218
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9219477920442667931}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8229066279911119940}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 6972257401541677578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0e7958e30f6b245975d00bc62cebbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerUI: {fileID: 1721678897406437432, guid: 9cbddca51378a0748805b8810d9b63cf,
+    type: 3}
+  characterNameTrigger: {fileID: 0}
+  playerCamera: {fileID: 500712101309553494}
+  raycastRange: 5
