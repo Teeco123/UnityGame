@@ -487,6 +487,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 313615746}
   m_SourcePrefab: {fileID: 100100000, guid: f76ce22c421338e40938f9746153199a, type: 3}
+--- !u!4 &590369324 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3629030795172438811, guid: 009d1ac76215dc04faf0fa02198b8b28,
+    type: 3}
+  m_PrefabInstance: {fileID: 2545503109939855243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &608491899 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1486142424683636161, guid: 115706dd93d17bf449688c1b166792cb,
@@ -1113,6 +1119,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!4 &1425293626 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6908478612316259423, guid: 009d1ac76215dc04faf0fa02198b8b28,
+    type: 3}
+  m_PrefabInstance: {fileID: 2545503109939855243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1486350279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1618,6 +1630,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1501689855217512374, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: muzzle
+      value: 
+      objectReference: {fileID: 590369324}
     - target: {fileID: 2549506277513206444, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
       propertyPath: m_Name
@@ -1643,10 +1660,15 @@ PrefabInstance:
       propertyPath: smoothWalkSway
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3644226587656367665, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: muzzle
+      value: 
+      objectReference: {fileID: 1425293626}
     - target: {fileID: 4284351448294760870, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7930025668036153734, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
