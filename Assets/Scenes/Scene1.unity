@@ -1633,8 +1633,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-<<<<<<< Updated upstream
-=======
     - target: {fileID: 984854894741309821, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
       propertyPath: m_IsActive
@@ -1650,7 +1648,6 @@ PrefabInstance:
       propertyPath: impactEffect
       value: 
       objectReference: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
->>>>>>> Stashed changes
     - target: {fileID: 2549506277513206444, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
       propertyPath: m_Name
@@ -1693,8 +1690,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5704089836991481039, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704089836991481039, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704089836991481039, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
       propertyPath: LightsModule.light
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704089836991481039, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704089836991481039, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704089836991481039, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7930025668036153734, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
