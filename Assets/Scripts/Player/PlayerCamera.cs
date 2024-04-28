@@ -14,6 +14,10 @@ public class PlayerCamera : MonoBehaviour
 
     void Update()
     {
+        if (DialogueManager.Getinstance().dialogueIsPlaying || SceneTransition.triggeredEnter)
+        {
+            return;
+        }
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
