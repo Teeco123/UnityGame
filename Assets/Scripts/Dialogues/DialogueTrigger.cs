@@ -1,56 +1,62 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [Header("Trigger Cue")]
+    [Header("Trigger UI")]
     [SerializeField]
-    private GameObject triggerCue;
+    private GameObject triggerUI;
 
-    [Header("Ink JSON")]
     [SerializeField]
-    private TextAsset inkJSON;
+    private TextMeshProUGUI characterNameTrigger;
 
-    private bool playerInRange;
+    [Header("Raycasts")]
+    [SerializeField]
+    private Camera playerCamera;
+
+    [SerializeField]
+    private float raycastRange;
 
     private void Update()
     {
-        if (playerInRange)
-        {
-            triggerCue.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.E) && !PauseMenu.menuActive)
-            {
-                DialogueManager.Getinstance().EnterDialogueMode(inkJSON);
-            }
-        }
-        else
-        {
-            triggerCue.SetActive(false);
-        }
+        CheckNPC();
     }
 
     private void Awake()
     {
-        playerInRange = false;
-        triggerCue.SetActive(false);
+        triggerUI.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void CheckNPC()
     {
-        if (collider.gameObject.tag == "Player")
+        RaycastHit hit;
+        if (
+            Physics.Raycast(
+                playerCamera.transform.position,
+                playerCamera.transform.forward,
+                out hit,
+                raycastRange
+            )
+        )
         {
-            playerInRange = true;
+            DialogueNPC npc = hit.transform.GetComponent<DialogueNPC>();
+            if (hit.transform.CompareTag("npc"))
+            {
+                triggerUI.SetActive(true);
+                characterNameTrigger.text = hit.transform.name;
+                if (Input.GetKeyDown(KeyCode.E) && !PauseMenu.menuActive)
+                {
+                    npc.Talk();
+                }
+            }
+            else
+            {
+                triggerUI.SetActive(false);
+            }
         }
-    }
-
-    private void OnTriggerExit(Collider collider)
-    {
-        if (collider.gameObject.tag == "Player")
+        else
         {
-            playerInRange = false;
+            triggerUI.SetActive(false);
         }
     }
 }
