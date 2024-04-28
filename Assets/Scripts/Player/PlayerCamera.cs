@@ -14,7 +14,7 @@ public class PlayerCamera : MonoBehaviour
 
     void Update()
     {
-        if (DialogueManager.Getinstance().dialogueIsPlaying)
+        if (DialogueManager.Getinstance().dialogueIsPlaying || SceneTransition.triggeredEnter)
         {
             return;
         }

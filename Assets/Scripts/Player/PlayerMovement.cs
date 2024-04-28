@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour, SavingInterface
@@ -32,7 +33,7 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
     // Update is called once per frameAW
     void Update()
     {
-        if (DialogueManager.Getinstance().dialogueIsPlaying)
+        if (DialogueManager.Getinstance().dialogueIsPlaying || SceneTransition.triggeredEnter)
         {
             return;
         }
