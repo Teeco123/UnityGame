@@ -30,7 +30,11 @@ public class Shooting : MonoBehaviour
             )
         )
         {
-            Debug.Log(hit.transform.name);
+            Enemy enemy = hit.transform.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
         }
     }
 }
