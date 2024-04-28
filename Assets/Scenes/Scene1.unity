@@ -1628,6 +1628,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3621139284215755251, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: walkSway
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621139284215755251, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: maxWalkSway
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621139284215755251, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: smoothWalkSway
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4284351448294760870, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
       propertyPath: m_IsActive
