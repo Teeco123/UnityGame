@@ -10038,6 +10038,7 @@ MonoBehaviour:
   maxRotationAmount: 4
   smoothRotation: 4
   walkSway: 0.1
+  swaySpeed: 1
   smoothWalkSway: 1
   rotationX: 1
   rotationY: 1
@@ -10125,7 +10126,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
+  m_AllowDynamicResolution: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -10161,8 +10162,8 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -10345,6 +10346,7 @@ MonoBehaviour:
   reloadTime: 1
   weaponType: 1
   playerCamera: {fileID: 500712101309553494}
+  muzzle: {fileID: 0}
   muzzleFlash: {fileID: 5704089836991481039}
   impactEffect: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
 --- !u!1001 &4013968548426095863
@@ -10480,5 +10482,6 @@ MonoBehaviour:
   reloadTime: 1
   weaponType: 0
   playerCamera: {fileID: 500712101309553494}
+  muzzle: {fileID: 0}
   muzzleFlash: {fileID: 5407393525176199457}
   impactEffect: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
