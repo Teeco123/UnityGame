@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b0b3698132c08419ee1207a701deec, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  ammoName: 
-  ammoDamage: 0
+  ammoName: Pistol
+  ammoDamage: 2
   ammoType: 0
   ammoEffect: 0

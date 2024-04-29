@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Glock
   m_EditorClassIdentifier: 
   gunName: Glock 19
+  model: {fileID: 919132149155446097, guid: 7385708db8bde684b8a022c50f2ac0c0, type: 3}
   gunDamageMin: 1
   gunDamageMax: 2
   maxAmmo: 15
@@ -21,3 +22,5 @@ MonoBehaviour:
   reloadTime: 1
   ammoType: 0
   weaponType: 0
+  position: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0, z: 0, w: 0}
