@@ -14,6 +14,19 @@ public class Inventory : MonoBehaviour, SavingInterface
 {
     public List<InventoryModel> inventory;
 
+    public void AddItem(InventoryModel item)
+    {
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            if (inventory[i].item == item.item) // This line remains the same
+            {
+                inventory[i].quantity += item.quantity;
+                return;
+            }
+        }
+        inventory.Add(item);
+    }
+
     public void LoadData(GameData data)
     {
         this.inventory = data.inventory;
