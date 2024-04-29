@@ -5,8 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Gun", menuName = "ScriptableObjects/NewGun", order = 1)]
 public class Guns : ScriptableObject
 {
+    [Header("Gun Info")]
     public string gunName;
     public GameObject model;
+
+    [Header("Gun Stats")]
     public int gunDamageMin;
     public int gunDamageMax;
     public int maxAmmo;
@@ -16,6 +19,10 @@ public class Guns : ScriptableObject
 
     public AmmoType ammoType;
     public WeaponType weaponType;
+
+    [Header("Gun Transform")]
+    public Vector3 position;
+    public Quaternion rotation;
 
     public enum WeaponType
     {
