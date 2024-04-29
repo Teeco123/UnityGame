@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5407393525176199457}
   - component: {fileID: 6189279990089353156}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: MuzzleFlashPistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4900,7 +4900,7 @@ GameObject:
   - component: {fileID: 5704089836991481039}
   - component: {fileID: 7025840548668430289}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: MuzzleFlashAK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9817,6 +9817,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8229066279911119940}
   - component: {fileID: 6979825490554951719}
+  - component: {fileID: 2028196463533092992}
+  - component: {fileID: 6670902265399247786}
+  - component: {fileID: 2035262565229122164}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -9864,6 +9867,49 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   startingPosition: {fileID: 11400000, guid: b78ebb6a950d5c74d886dddf22352807, type: 2}
+--- !u!114 &2028196463533092992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214005452833856314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8176890ba14634799fa0eb93f79b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: []
+--- !u!114 &6670902265399247786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214005452833856314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb91c1121e63ed6439d7ef6fe944e3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 500712101309553494}
+  raycastRange: 5
+--- !u!114 &2035262565229122164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214005452833856314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0e7958e30f6b245975d00bc62cebbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerUI: {fileID: 0}
+  characterNameTrigger: {fileID: 0}
+  playerCamera: {fileID: 500712101309553494}
+  raycastRange: 5
 --- !u!1 &3644587912398856468
 GameObject:
   m_ObjectHideFlags: 0
@@ -10056,7 +10102,6 @@ GameObject:
   - component: {fileID: 2862221226765004070}
   - component: {fileID: 1158046294364298375}
   - component: {fileID: 8892612942640474637}
-  - component: {fileID: 7930025668036153734}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -10177,7 +10222,7 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
+    quality: 4
     frameInfluence: 0.1
     jitterScale: 1
     mipBias: 0
@@ -10197,22 +10242,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 8229066279911119940}
   mouseSensitivity: 100
---- !u!114 &7930025668036153734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6972257401541677578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb0e7958e30f6b245975d00bc62cebbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerUI: {fileID: 0}
-  characterNameTrigger: {fileID: 0}
-  playerCamera: {fileID: 500712101309553494}
-  raycastRange: 5
 --- !u!1001 &102317936048436268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10299,7 +10328,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f3a99f52ff8e676418c763da72635587,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10346,7 +10375,7 @@ MonoBehaviour:
   reloadTime: 1
   weaponType: 1
   playerCamera: {fileID: 500712101309553494}
-  muzzle: {fileID: 0}
+  muzzle: {fileID: 3629030795172438811}
   muzzleFlash: {fileID: 5704089836991481039}
   impactEffect: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
 --- !u!1001 &4013968548426095863
@@ -10435,7 +10464,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7385708db8bde684b8a022c50f2ac0c0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10482,6 +10511,6 @@ MonoBehaviour:
   reloadTime: 1
   weaponType: 0
   playerCamera: {fileID: 500712101309553494}
-  muzzle: {fileID: 0}
+  muzzle: {fileID: 6908478612316259423}
   muzzleFlash: {fileID: 5407393525176199457}
   impactEffect: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
