@@ -9818,6 +9818,8 @@ GameObject:
   - component: {fileID: 8229066279911119940}
   - component: {fileID: 6979825490554951719}
   - component: {fileID: 2028196463533092992}
+  - component: {fileID: 6670902265399247786}
+  - component: {fileID: 2035262565229122164}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -9878,6 +9880,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: []
+--- !u!114 &6670902265399247786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214005452833856314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb91c1121e63ed6439d7ef6fe944e3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 500712101309553494}
+  raycastRange: 5
+--- !u!114 &2035262565229122164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214005452833856314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0e7958e30f6b245975d00bc62cebbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerUI: {fileID: 0}
+  characterNameTrigger: {fileID: 0}
+  playerCamera: {fileID: 500712101309553494}
+  raycastRange: 5
 --- !u!1 &3644587912398856468
 GameObject:
   m_ObjectHideFlags: 0
@@ -10070,7 +10102,6 @@ GameObject:
   - component: {fileID: 2862221226765004070}
   - component: {fileID: 1158046294364298375}
   - component: {fileID: 8892612942640474637}
-  - component: {fileID: 7930025668036153734}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -10211,22 +10242,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 8229066279911119940}
   mouseSensitivity: 100
---- !u!114 &7930025668036153734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6972257401541677578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb0e7958e30f6b245975d00bc62cebbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerUI: {fileID: 0}
-  characterNameTrigger: {fileID: 0}
-  playerCamera: {fileID: 500712101309553494}
-  raycastRange: 5
 --- !u!1001 &102317936048436268
 PrefabInstance:
   m_ObjectHideFlags: 0

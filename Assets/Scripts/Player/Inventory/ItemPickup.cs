@@ -20,6 +20,7 @@ public class ItemPickup : MonoBehaviour
     void CheckItem()
     {
         RaycastHit hit;
+        //Shooting raycast from camera
         if (
             Physics.Raycast(
                 playerCamera.transform.position,
@@ -29,17 +30,19 @@ public class ItemPickup : MonoBehaviour
             )
         )
         {
-            Item item = hit.transform.GetComponent<Item>();
+            Item item = hit.transform.GetComponent<Item>(); //Getting Item script from target hit
+
             if (item != null && hit.transform.CompareTag("Item"))
             {
                 Inventory inventory = GetComponent<Inventory>(); // Check for Inventory component
                 if (inventory != null)
                 {
+                    //Adding item to inventory
                     inventory.AddItem(item.GetItemData());
                 }
                 else
                 {
-                    Debug.LogWarning("Player doesn't have Inventory component!"); // Handle missing component
+                    Debug.LogWarning("Player doesn't have Inventory component"); // Handle missing component
                 }
             }
         }
