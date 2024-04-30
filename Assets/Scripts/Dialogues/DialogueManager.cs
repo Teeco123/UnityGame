@@ -48,6 +48,7 @@ public class DialogueManager : MonoBehaviour, SavingInterface
 
     private DialogueVariables dialogueVariables;
 
+    //Makes sure there is only one Dialogue Manager in the scene
     private void Awake()
     {
         if (instance != null)
@@ -57,11 +58,13 @@ public class DialogueManager : MonoBehaviour, SavingInterface
         instance = this;
     }
 
+    //Returns singleton instance of manager
     public static DialogueManager Getinstance()
     {
         return instance;
     }
 
+    //Initializes default states for UI and choices
     private void Start()
     {
         dialogueIsPlaying = false;
@@ -78,14 +81,18 @@ public class DialogueManager : MonoBehaviour, SavingInterface
 
     private void Update()
     {
+        //Skipping dialogue
         if (Input.GetKeyDown(KeyCode.Return))
         {
             submitSkip = true;
         }
+
         if (!dialogueIsPlaying)
         {
             return;
         }
+
+        //Moving to next dialogue after button input
         if (canContinueToNextLine && Input.GetKeyDown(KeyCode.Return))
         {
             ContinueStory();
@@ -94,7 +101,10 @@ public class DialogueManager : MonoBehaviour, SavingInterface
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
+        //Loading dialogue from file
         currentStory = new Story(inkJSON.text);
+
+        //Activating dialogue UI
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
@@ -109,29 +119,35 @@ public class DialogueManager : MonoBehaviour, SavingInterface
     {
         dialogueVariables.StopListening(currentStory);
 
+        //Disabling UI
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
     }
 
+    //Moving dialogue to next line
     private void ContinueStory()
     {
         if (currentStory.canContinue)
         {
+            //If dialogue typing is over
             if (DisplayLineCoroutine != null)
             {
                 StopCoroutine(DisplayLineCoroutine);
             }
+            //Start typing new line
             DisplayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
 
             HandleTags(currentStory.currentTags);
         }
         else
         {
+            //if can't continue exit dialogue mode
             ExitDialogueMode();
         }
     }
 
+    //Makes that player can skip typing dialogue after given value
     private IEnumerator CanSkip()
     {
         canSkip = false; //Making sure the variable is false.
@@ -139,8 +155,10 @@ public class DialogueManager : MonoBehaviour, SavingInterface
         canSkip = true;
     }
 
+    //Typing effect for dialogues
     private IEnumerator DisplayLine(string line)
     {
+        //Defaults dialogue system
         dialogueText.text = "";
         submitSkip = false;
         canContinueToNextLine = false;
@@ -148,34 +166,43 @@ public class DialogueManager : MonoBehaviour, SavingInterface
 
         StartCoroutine(CanSkip());
 
+        //Looping through each letter from dialogue
         foreach (char letter in line.ToCharArray())
         {
             if (canSkip && submitSkip)
             {
+                //Skips typing animation
                 submitSkip = false;
                 dialogueText.text = line;
                 break;
             }
+            //Displays next character after given value (typingSpeed)
             dialogueText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
+
+        //Typing is complete
         canContinueToNextLine = true;
         canSkip = false;
         DisplayChoices();
     }
 
+    //Processing tags from inky dialogues
     private void HandleTags(List<string> currentTags)
     {
         foreach (string tag in currentTags)
         {
+            //Splitting tags
             string[] splitTag = tag.Split(':');
             if (splitTag.Length != 2)
             {
                 Debug.LogError("Tag is not working");
             }
+            //Extracting values from tags
             string tagKey = splitTag[0].Trim();
             string tagValue = splitTag[1].Trim();
 
+            //Handling tags
             switch (tagKey)
             {
                 case SPEAKER_TAG:
@@ -188,6 +215,7 @@ public class DialogueManager : MonoBehaviour, SavingInterface
         }
     }
 
+    //Hiding choices buttons from UI
     private void HideChoices()
     {
         foreach (GameObject choiceButton in choices)
@@ -198,27 +226,34 @@ public class DialogueManager : MonoBehaviour, SavingInterface
 
     private void DisplayChoices()
     {
+        //Retrieving choices from ink file
         List<Choice> currentChoices = currentStory.currentChoices;
 
+        //Checking if UI supports that many choices
         if (currentChoices.Count > choices.Length)
         {
             Debug.LogError("more choices than ui buttons");
         }
         int index = 0;
 
+        //Turning on choices and settings names for each choice from file
         foreach (Choice choice in currentChoices)
         {
             choices[index].gameObject.SetActive(true);
             choicesText[index].text = choice.text;
             index++;
         }
+
+        //Hiding unused buttons
         for (int i = index; i < choices.Length; i++)
         {
             choices[i].gameObject.SetActive(false);
         }
+
         StartCoroutine(SelectFirstChoice());
     }
 
+    //Selects default first choice
     private IEnumerator SelectFirstChoice()
     {
         EventSystem.current.SetSelectedGameObject(null);
@@ -226,6 +261,7 @@ public class DialogueManager : MonoBehaviour, SavingInterface
         EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
     }
 
+    //Handles selecting choice
     public void MakeChoice(int choiceIndex)
     {
         if (canContinueToNextLine)
@@ -234,12 +270,14 @@ public class DialogueManager : MonoBehaviour, SavingInterface
         }
     }
 
+    //Loading dialogue variables
     public void LoadData(GameData data)
     {
         // now we can create a new DialogueVariables object that's being initialized based on any loaded data
         dialogueVariables = new DialogueVariables(loadGlobalsJSON, data.currentVariables);
     }
 
+    //Saving dialogue variables
     public void SaveData(GameData data)
     {
         // when we save the game, we get the current global state from our dialogue variables and then save that to our data
