@@ -17,6 +17,7 @@ public class WeaponSwitching : MonoBehaviour
     {
         int previousSelectedWeapon = selectedWeapon;
 
+        //Scrolls through all game object children to choose weapon
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             if (selectedWeapon >= transform.childCount - 1)
@@ -49,6 +50,8 @@ public class WeaponSwitching : MonoBehaviour
     void SelectWeapon()
     {
         int i = 0;
+
+        //Based on i value changes active game object
         foreach (Transform weapon in transform)
         {
             if (i == selectedWeapon)
