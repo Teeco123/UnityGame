@@ -8,7 +8,10 @@ using UnityEngine.UI;
 public class Ustawienia : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    public Slider Master, Music, Fx, Dialogs;
+    public Slider Master,
+        Music,
+        Fx,
+        Dialogs;
 
     private void Start()
     {
@@ -16,6 +19,7 @@ public class Ustawienia : MonoBehaviour
 
         foreach (string s in nazwakanau)
         {
+            //Loads values
             float storedValue = PlayerPrefs.GetFloat(s);
             audioMixer.SetFloat(s, storedValue);
 
@@ -37,29 +41,32 @@ public class Ustawienia : MonoBehaviour
         }
     }
 
+    //Saving all changed settings
     public void SetVolumeGlobal(float volume)
     {
-        
         audioMixer.SetFloat("Master", volume);
         savepref("Master", volume);
     }
+
     public void SetVolumeMusic(float volume)
     {
         audioMixer.SetFloat("Music", volume);
         savepref("Music", volume);
     }
+
     public void SetVolumeFx(float volume)
     {
         audioMixer.SetFloat("Fx", volume);
         savepref("Fx", volume);
     }
+
     public void SetVolumeDialog(float volume)
     {
         audioMixer.SetFloat("Dialogs", volume);
         savepref("Dialogs", volume);
     }
 
-    void savepref(string name,float volume)
+    void savepref(string name, float volume)
     {
         PlayerPrefs.SetFloat(name, volume);
     }
