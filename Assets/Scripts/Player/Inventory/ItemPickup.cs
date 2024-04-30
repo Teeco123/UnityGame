@@ -30,11 +30,13 @@ public class ItemPickup : MonoBehaviour
             )
         )
         {
-            Item item = hit.transform.GetComponent<Item>(); //Getting Item script from target hit
+            //Getting Item script from target hit
+            Item item = hit.transform.GetComponent<Item>();
 
             if (item != null && hit.transform.CompareTag("Item"))
             {
-                Inventory inventory = GetComponent<Inventory>(); // Check for Inventory component
+                // Check for Inventory component
+                Inventory inventory = GetComponent<Inventory>();
                 if (inventory != null)
                 {
                     //Adding item to inventory
@@ -42,7 +44,8 @@ public class ItemPickup : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning("Player doesn't have Inventory component"); // Handle missing component
+                    // Handle missing component
+                    Debug.LogWarning("Player doesn't have Inventory component");
                 }
             }
         }
