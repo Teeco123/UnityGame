@@ -51,6 +51,7 @@ public class Shooting : MonoBehaviour
             StartCoroutine(Reload());
         }
 
+        //Player can hold or needs to click to shoot based on weapon type
         if (weaponType == WeaponType.Automatic)
         {
             if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
@@ -69,6 +70,7 @@ public class Shooting : MonoBehaviour
         }
     }
 
+    //Stops player from shooting and adds ammo
     IEnumerator Reload()
     {
         isReloading = true;
@@ -81,8 +83,9 @@ public class Shooting : MonoBehaviour
     {
         muzzleFlash.Play();
         currentAmmo--;
-        RaycastHit hit;
 
+        //Shoots raycast from gun
+        RaycastHit hit;
         if (
             Physics.Raycast(
                 muzzle.transform.position,
@@ -92,16 +95,20 @@ public class Shooting : MonoBehaviour
             )
         )
         {
+            //Gets enemy script from hit target
             Enemy enemy = hit.transform.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
             }
+            //Creates bullet impact game object
             GameObject impactGO = Instantiate(
                 impactEffect,
                 hit.point,
                 Quaternion.LookRotation(hit.normal)
             );
+
+            //Destroys impact so it won't fill whole scene 💀
             Destroy(impactGO, 2f);
         }
     }

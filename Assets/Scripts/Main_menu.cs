@@ -13,8 +13,8 @@ public class Main_menu : MonoBehaviour
 
     public void NewGame()
     {
-        File.Delete(Application.persistentDataPath + "/SaveFile");
-        DataSavingManager.instance.NewGame();
+        File.Delete(Application.persistentDataPath + "/SaveFile"); //Deletes save file
+        DataSavingManager.instance.NewGame(); //This dont work 💀💀
 
         SceneManager.LoadSceneAsync("Scene1");
     }
@@ -24,6 +24,7 @@ public class Main_menu : MonoBehaviour
         SceneManager.LoadSceneAsync("Menu");
         DataSavingManager.instance.SaveGame();
     }
+
     public void QuitGame()
     {
         Application.Quit();

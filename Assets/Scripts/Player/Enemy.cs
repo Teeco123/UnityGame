@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float ammount)
     {
+        //decrement based on damage
         health -= ammount;
         if (health <= 0f)
         {

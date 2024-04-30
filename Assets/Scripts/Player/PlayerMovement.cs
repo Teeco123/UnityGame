@@ -26,31 +26,38 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
 
     void Start()
     {
+        //Add controller to player object
         controller = gameObject.AddComponent<CharacterController>();
     }
 
-    // Update is called once per frameAW
+    // Update is called once per frame
     void Update()
     {
+        //Stops moving player when dialogue is playing
         if (DialogueManager.Getinstance().dialogueIsPlaying || SceneTransition.triggeredEnter)
         {
             return;
         }
 
+        //Checks if player is on the ground
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
+        //Makes sure player doesn't gain velocity when is grounded //FIX: player starts falling slowly when near ground
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
 
+        //Gets player input
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
 
+        //Moves player
         controller.Move(move * speed * Time.deltaTime);
 
+        //Handles Jumping
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jump * -2f * gravity);
@@ -59,6 +66,7 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
 
         controller.Move(velocity * Time.deltaTime);
 
+        //Handles Sprint
         if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = sprintSpeed;
@@ -68,6 +76,7 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
             speed = walkSpeed;
         }
 
+        //Saving on F5
         if (Input.GetKeyDown(KeyCode.F5))
         {
             DataSavingManager.instance.SaveGame();
@@ -92,6 +101,7 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
         }
     }
 
+    //Moves player to door location after moving to saved Vector3
     IEnumerator DelayThenTransform(float delay)
     {
         yield return new WaitForSeconds(delay);

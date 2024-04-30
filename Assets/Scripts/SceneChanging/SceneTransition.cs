@@ -21,6 +21,7 @@ public class SceneTransition : MonoBehaviour
         triggeredEnter = false;
     }
 
+    //Checks if player is near the door
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag("Player"))
@@ -33,6 +34,7 @@ public class SceneTransition : MonoBehaviour
             canEnter = false;
     }
 
+    //On input changes scene
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && canEnter && !PauseMenu.menuActive)
@@ -44,12 +46,14 @@ public class SceneTransition : MonoBehaviour
 
     IEnumerator LoadLevel()
     {
+        //Plays transition
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
 
         isEntering = true;
 
+        //Moves player to set scene and set values on door
         playerStorage.initialValue = playerPosition;
         SceneManager.LoadSceneAsync(sceneToLoad);
     }

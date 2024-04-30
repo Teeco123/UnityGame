@@ -19,11 +19,13 @@ public class Resolutions : MonoBehaviour
 
     private void Start()
     {
+        //Gets all supported resolutions
         resolutions = Screen.resolutions;
         filteredResolutions = new List<Resolution>();
 
         resolutionDropDown.ClearOptions();
 
+        //Checks for existing resolutions and adds unique ones
         for (int i = 0; i < resolutions.Length; i++)
         {
             if (
@@ -37,6 +39,8 @@ public class Resolutions : MonoBehaviour
         }
 
         List<string> options = new List<string>();
+
+        //Displays all resolutions in dropdown menu based on available resolutions
         for (int i = 0; i < filteredResolutions.Count; i++)
         {
             string resolutionOption =
@@ -51,6 +55,7 @@ public class Resolutions : MonoBehaviour
             }
         }
 
+        //Settings resolution
         resolutionDropDown.AddOptions(options);
         resolutionDropDown.value = currentResolutionIndex;
         resolutionDropDown.RefreshShownValue();
@@ -59,16 +64,26 @@ public class Resolutions : MonoBehaviour
     public void SetResolution(int resolutionIndex)
     {
         resolution = filteredResolutions[resolutionIndex];
-        switch(PlayerPrefs.GetInt("ScreenMode"))
+
+        //Changes screen mode based on choosen value
+        switch (PlayerPrefs.GetInt("ScreenMode"))
         {
             case 0:
-                Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.ExclusiveFullScreen);
+                Screen.SetResolution(
+                    resolution.width,
+                    resolution.height,
+                    FullScreenMode.ExclusiveFullScreen
+                );
                 break;
-           
+
             case 1:
-                Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.FullScreenWindow);
+                Screen.SetResolution(
+                    resolution.width,
+                    resolution.height,
+                    FullScreenMode.FullScreenWindow
+                );
                 break;
-            
+
             case 2:
                 Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.Windowed);
                 break;
