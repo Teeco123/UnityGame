@@ -12,6 +12,9 @@ public class LightningManager : MonoBehaviour
     [SerializeField, Range(0, 24)]
     private float timeOfDay;
 
+    [SerializeField, Range(0, 1)]
+    private float speedOfTime;
+
     private void Update()
     {
         if (preset == null)
@@ -22,7 +25,7 @@ public class LightningManager : MonoBehaviour
         if (Application.isPlaying)
         {
             //Update time and lightning
-            timeOfDay += Time.deltaTime;
+            timeOfDay += Time.deltaTime * speedOfTime;
             timeOfDay %= 24;
             UpdateLightning(timeOfDay / 24f);
         }
