@@ -13,7 +13,7 @@ public class LightningManager : MonoBehaviour
     private float timeOfDay;
 
     [SerializeField, Range(0, 1)]
-    private float speedOfTime;
+    private float speedOfTime = 0.0166666666666667f; //1 minute  = 1 hour in game
 
     private void Update()
     {
