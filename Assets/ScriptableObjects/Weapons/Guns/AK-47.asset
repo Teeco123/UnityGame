@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1e11be7affdd8145bd2210fe2d3f3e8, type: 3}
-  m_Name: Glock
+  m_Name: AK-47
   m_EditorClassIdentifier: 
-  gunName: Glock 19
-  model: {fileID: 919132149155446097, guid: 7385708db8bde684b8a022c50f2ac0c0, type: 3}
-  gunDamageMin: 1
-  gunDamageMax: 2
-  maxAmmo: 15
-  fireRate: 5
-  range: 50
-  reloadTime: 1
-  ammoType: 0
-  weaponType: 0
+  gunName: AK-47
+  model: {fileID: 919132149155446097, guid: f3a99f52ff8e676418c763da72635587, type: 3}
+  gunDamageMin: 4
+  gunDamageMax: 6
+  maxAmmo: 30
+  fireRate: 10
+  range: 150
+  reloadTime: 2
+  ammoType: 3
+  weaponType: 1
   position: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 0}
-  muzzleFlash: {fileID: 3949793042020618606, guid: 5d6d8cdfb2ceae545bb00dde2b151713,
+  muzzleFlash: {fileID: 7477715979626837251, guid: bde052a183ec8b24ba382ec31737834a,
     type: 3}
   impactEffect: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}

@@ -24,6 +24,9 @@ public class Guns : ScriptableObject
     public Vector3 position;
     public Quaternion rotation;
 
+    public ParticleSystem muzzleFlash;
+    public GameObject impactEffect;
+
     public enum WeaponType
     {
         singleFire,
