@@ -4,34 +4,20 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public int damage = 1;
-    public float range = 50;
-    public float fireRate = 15;
+    public Guns gunsStats;
 
-    public int maxAmmo = 30;
     public int currentAmmo;
-    public float reloadTime = 1f;
+
     private bool isReloading = false;
-
-    public enum WeaponType
-    {
-        singleFire,
-        Automatic
-    }
-
-    [SerializeField]
-    private WeaponType weaponType;
 
     public Camera playerCamera;
     public Transform muzzle;
-    public ParticleSystem muzzleFlash;
-    public GameObject impactEffect;
 
     private float nextTimeToFire = 0f;
 
     void Start()
     {
-        currentAmmo = maxAmmo;
+        currentAmmo = gunsStats.maxAmmo;
     }
 
     void OnEnable()
@@ -52,19 +38,19 @@ public class Shooting : MonoBehaviour
         }
 
         //Player can hold or needs to click to shoot based on weapon type
-        if (weaponType == WeaponType.Automatic)
+        if (gunsStats.weaponType == Guns.WeaponType.automatic)
         {
             if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
             {
-                nextTimeToFire = Time.time + 1f / fireRate;
+                nextTimeToFire = Time.time + 1f / gunsStats.fireRate;
                 Shoot();
             }
         }
-        else if (weaponType == WeaponType.singleFire)
+        else if (gunsStats.weaponType == Guns.WeaponType.singleFire)
         {
             if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
             {
-                nextTimeToFire = Time.time + 1f / fireRate;
+                nextTimeToFire = Time.time + 1f / gunsStats.fireRate;
                 Shoot();
             }
         }
@@ -74,14 +60,14 @@ public class Shooting : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
-        yield return new WaitForSeconds(reloadTime);
-        currentAmmo = maxAmmo;
+        yield return new WaitForSeconds(gunsStats.reloadTime);
+        currentAmmo = gunsStats.maxAmmo;
         isReloading = false;
     }
 
     void Shoot()
     {
-        muzzleFlash.Play();
+        gunsStats.muzzleFlash.Play();
         currentAmmo--;
 
         //Shoots raycast from gun
@@ -91,7 +77,7 @@ public class Shooting : MonoBehaviour
                 muzzle.transform.position,
                 playerCamera.transform.forward,
                 out hit,
-                range
+                gunsStats.range
             )
         )
         {
@@ -99,11 +85,11 @@ public class Shooting : MonoBehaviour
             Enemy enemy = hit.transform.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(Random.Range(gunsStats.gunDamageMin, gunsStats.gunDamageMax));
             }
             //Creates bullet impact game object
             GameObject impactGO = Instantiate(
-                impactEffect,
+                gunsStats.impactEffect,
                 hit.point,
                 Quaternion.LookRotation(hit.normal)
             );

@@ -10367,17 +10367,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa93a26dc2c92e348819d521e81a36d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  range: 50
-  fireRate: 15
-  maxAmmo: 30
+  gunsStats: {fileID: 11400000, guid: 87334d4c27f3f1f4db59e0dd05b46103, type: 2}
   currentAmmo: 0
-  reloadTime: 1
-  weaponType: 1
   playerCamera: {fileID: 500712101309553494}
   muzzle: {fileID: 3629030795172438811}
-  muzzleFlash: {fileID: 5704089836991481039}
-  impactEffect: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
 --- !u!1001 &4013968548426095863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10503,14 +10496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa93a26dc2c92e348819d521e81a36d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  range: 50
-  fireRate: 5
-  maxAmmo: 12
+  gunsStats: {fileID: 11400000, guid: 5379123430b09714eb08c5e5c76bad58, type: 2}
   currentAmmo: 0
-  reloadTime: 1
-  weaponType: 0
   playerCamera: {fileID: 500712101309553494}
   muzzle: {fileID: 6908478612316259423}
-  muzzleFlash: {fileID: 5407393525176199457}
-  impactEffect: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
