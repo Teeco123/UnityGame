@@ -35,6 +35,8 @@ public class WeaponSpawner : MonoBehaviour
             {
                 //Converting item from InventoryModel to Guns class
                 gunToSpawn = (Guns)foundItem.item;
+
+                //TODO: Spawning weapon in weapon holder based on weapons in inventory
             }
         }
     }
