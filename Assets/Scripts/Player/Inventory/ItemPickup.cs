@@ -20,6 +20,7 @@ public class ItemPickup : MonoBehaviour
     void CheckItem()
     {
         RaycastHit hit;
+
         //Shooting raycast from camera
         if (
             Physics.Raycast(
@@ -41,6 +42,12 @@ public class ItemPickup : MonoBehaviour
                 {
                     //Adding item to inventory
                     inventory.AddItem(item.GetItemData());
+
+                    //Destroying pickup object if destroyOnPickup is checked
+                    if (item.destroyOnPickup == true)
+                    {
+                        Destroy(hit.transform.gameObject);
+                    }
                 }
                 else
                 {
