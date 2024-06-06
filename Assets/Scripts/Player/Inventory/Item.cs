@@ -7,6 +7,8 @@ public class Item : MonoBehaviour
     public ScriptableObject itemData;
     public int quantity;
 
+    public bool destroyOnPickup;
+
     //Class to reference in other scripts so u can get item data
     public InventoryModel GetItemData()
     {
