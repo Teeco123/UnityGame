@@ -255,6 +255,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1158046294364298375, guid: 009d1ac76215dc04faf0fa02198b8b28,
+        type: 3}
+      propertyPath: m_Antialiasing
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2035262565229122164, guid: 009d1ac76215dc04faf0fa02198b8b28,
         type: 3}
       propertyPath: triggerUI
