@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.613637, g: 0.6531723, b: 0.6603606, a: 0.000038146973}
+  m_FogColor: {r: 0.19330722, g: 0.22499514, b: 0.2264151, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.003
   m_LinearFogStart: 0
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1756109813}
-  m_IndirectSpecularColor: {r: 0.2166807, g: 0.3544832, b: 0.64097786, a: 1}
+  m_IndirectSpecularColor: {r: 0.014704969, g: 0.27569488, b: 0.029337086, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1024,6 +1024,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6291375811042196097, guid: 9a3a15a79c1e46a4e9a805d1cfd1b302,
+        type: 3}
+      propertyPath: skyboxMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 2bd8959f5fbd3644aa33af1a155fc147, type: 2}
+    - target: {fileID: 6291375811042196097, guid: 9a3a15a79c1e46a4e9a805d1cfd1b302,
+        type: 3}
+      propertyPath: directionalLight
+      value: 
+      objectReference: {fileID: 1756109813}
     - target: {fileID: 7999887594743774825, guid: 9a3a15a79c1e46a4e9a805d1cfd1b302,
         type: 3}
       propertyPath: m_Name

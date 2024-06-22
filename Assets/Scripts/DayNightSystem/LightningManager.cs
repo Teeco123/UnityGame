@@ -7,6 +7,9 @@ public class LightningManager : MonoBehaviour
     private Light directionalLight;
 
     [SerializeField]
+    private Material skyboxMaterial;
+
+    [SerializeField]
     private LightningPreset preset;
 
     [SerializeField, Range(0, 24)]
@@ -48,6 +51,7 @@ public class LightningManager : MonoBehaviour
         //Setting color based on gradients from our preset
         RenderSettings.ambientLight = preset.ambientColor.Evaluate(timePercent);
         RenderSettings.fogColor = preset.fogColor.Evaluate(timePercent);
+        skyboxMaterial.SetColor("_TintColor", preset.skyboxColor.Evaluate(timePercent));
 
         if (directionalLight != null)
         {
