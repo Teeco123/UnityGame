@@ -15,6 +15,13 @@ public class LightningManager : MonoBehaviour
     [SerializeField, Range(0, 1)]
     private float speedOfTime = 0.0166666666666667f; //1 minute  = 1 hour in game
 
+    [Header("Fog Density")]
+    [SerializeField, Range(0, 1)]
+    public float maxFogDensity;
+
+    [SerializeField, Range(0, 1)]
+    private float minFogDensity;
+
     private void Update()
     {
         if (preset == null)
@@ -28,6 +35,7 @@ public class LightningManager : MonoBehaviour
             timeOfDay += Time.deltaTime * speedOfTime;
             timeOfDay %= 24;
             UpdateLightning(timeOfDay / 24f);
+            GenerateFog();
         }
         else
         {
@@ -49,6 +57,11 @@ public class LightningManager : MonoBehaviour
                 new Vector3((timePercent * 360f) - 90f, -170, 0)
             );
         }
+    }
+
+    private void GenerateFog()
+    {
+        //TODO:Randomize fog density that gonna feel smooth
     }
 
     private void OnValidate()
