@@ -51,6 +51,7 @@ public class LightningManager : MonoBehaviour
         //Setting color based on gradients from our preset
         RenderSettings.ambientLight = preset.ambientColor.Evaluate(timePercent);
         RenderSettings.fogColor = preset.fogColor.Evaluate(timePercent);
+        skyboxMaterial.SetColor("_SkyTint", preset.skyboxColor.Evaluate(timePercent));
 
         if (directionalLight != null)
         {
