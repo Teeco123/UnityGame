@@ -17,7 +17,7 @@ Shader "Skybox/Cubemap Extended"
 		[StyledCategory(Fog Settings)]_Fogg("[ Fogg ]", Float) = 1
 		[Toggle(_ENABLEFOG_ON)] _EnableFog("Enable Fog", Float) = 0
 		[StyledMessage(Info, The fog color is controlled by the fog color set in the Lighting panel., _EnableFog, 1, 10, 0)]_FogMessage("# FogMessage", Float) = 0
-		[Space(10)]_FogIntensity("Fog Intensity", Range( 0 , 1)) = 1
+		[Space(10)]_FogIntensity("Fog Intensity", Range( 0 , 2)) = 2
 		_FogHeight("Fog Height", Range( 0 , 1)) = 1
 		_FogSmoothness("Fog Smoothness", Range( 0.01 , 1)) = 0.01
 		_FogFill("Fog Fill", Range( 0 , 1)) = 0.5
