@@ -13,5 +13,4 @@ public class LightningPreset : ScriptableObject
     public Gradient ambientColor;
     public Gradient directionalColor;
     public Gradient fogColor;
-    public Gradient skyboxColor;
 }
