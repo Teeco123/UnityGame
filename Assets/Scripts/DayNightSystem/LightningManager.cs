@@ -3,15 +3,27 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class LightningManager : MonoBehaviour
 {
+    [Header("Sun & Moon")]
     [SerializeField]
-    private Light directionalLight;
+    private Light sun;
 
     [SerializeField]
-    private Material skyboxMaterial;
+    private Light moon;
 
+    [Header("Skybox Materials")]
+    [SerializeField]
+    private Material skyboxDay;
+
+    [SerializeField]
+    private Material skyboxNight;
+
+    private Material currentSkybox;
+
+    [Header("Lightning Preset")]
     [SerializeField]
     private LightningPreset preset;
 
+    [Header("Time Management")]
     [SerializeField, Range(0, 24)]
     private float timeOfDay;
 
@@ -51,16 +63,24 @@ public class LightningManager : MonoBehaviour
         //Setting color based on gradients from our preset
         RenderSettings.ambientLight = preset.ambientColor.Evaluate(timePercent);
         RenderSettings.fogColor = preset.fogColor.Evaluate(timePercent);
-        skyboxMaterial.SetColor("_SkyTint", preset.skyboxColor.Evaluate(timePercent));
 
-        if (directionalLight != null)
+        if (sun != null & moon != null)
         {
             //Set color of the sun & rotates sun based on time
-            directionalLight.color = preset.directionalColor.Evaluate(timePercent);
-            directionalLight.transform.localRotation = Quaternion.Euler(
+            //sun.color = preset.directionalColor.Evaluate(timePercent);
+
+            sun.transform.localRotation = Quaternion.Euler(
                 new Vector3((timePercent * 360f) - 90f, -170, 0)
             );
+
+            moon.transform.localRotation = Quaternion.Euler(
+                new Vector3((timePercent * 360f) - 270f, -170, 0)
+            );
         }
+
+        //Changing skyboxmaterial based on time
+        //currentSkybox.Lerp(skyboxDay, skyboxNight, timeOfDay / 24f);
+        //RenderSettings.skybox = currentSkybox;
     }
 
     private void GenerateFog()
@@ -71,29 +91,9 @@ public class LightningManager : MonoBehaviour
     private void OnValidate()
     {
         //Check if directional light is set up
-        if (directionalLight != null)
+        if (sun != null & moon != null)
         {
             return;
-        }
-
-        //Makes directional light a sun
-        if (RenderSettings.sun != null)
-        {
-            directionalLight = RenderSettings.sun;
-        }
-        else
-        {
-            Light[] lights = GameObject.FindObjectsOfType<Light>();
-
-            //If no sun is found search for first directional light and set it as a sun
-            foreach (Light light in lights)
-            {
-                if (light.type == LightType.Directional)
-                {
-                    directionalLight = light;
-                    return;
-                }
-            }
         }
     }
 }

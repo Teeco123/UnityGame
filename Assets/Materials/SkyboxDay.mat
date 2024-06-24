@@ -220,7 +220,7 @@ Material:
     - _EquatorColor: {r: 1, g: 0.747, b: 0, a: 1}
     - _GroundColor: {r: 0.49803913, g: 0.49699998, b: 0, a: 1}
     - _MoonColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SkyColor: {r: 0.49803913, g: 0.7450981, b: 1, a: 1}
+    - _SkyColor: {r: 0.1348548, g: 1, b: 0, a: 1}
     - _SkyboxRotationAxis: {r: 0, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _StarsRotationAxis: {r: 0, g: 1, b: 0, a: 0}
