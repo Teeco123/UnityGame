@@ -1,43 +1,52 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 [ExecuteInEditMode]
 public class LightningManager : MonoBehaviour
 {
     [Header("Sun & Moon")]
-    [SerializeField]
-    private Light sun;
+    public Light sun;
 
-    [SerializeField]
-    private Light moon;
+    public Light moon;
 
     [Header("Skybox Materials")]
-    [SerializeField]
-    private Material skyboxDay;
+    public Material skyboxDay;
 
-    [SerializeField]
-    private Material skyboxNight;
+    public Material skyboxNight;
 
-    private Material currentSkybox;
+    Material currentSkybox;
 
     [Header("Lightning Preset")]
-    [SerializeField]
-    private LightningPreset preset;
+    public LightningPreset preset;
 
     [Header("Time Management")]
+    public float timeTick;
+
     [SerializeField, Range(0, 24)]
-    private float timeOfDay;
+    public float timeOfDay;
+
+    [SerializeField, Range(0, 24)]
+    public float skyboxChangeTime;
 
     [SerializeField, Range(0, 1)]
-    private float speedOfTime = 0.0166666666666667f; //1 minute  = 1 hour in game
+    public float speedOfTime = 0.0166666666666667f; //1 minute  = 1 hour in game
 
     [Header("Fog Density")]
     [SerializeField, Range(0, 1)]
     public float maxFogDensity;
 
     [SerializeField, Range(0, 1)]
-    private float minFogDensity;
+    public float minFogDensity;
 
-    private void Update()
+    void Start()
+    {
+        if (skyboxDay != null && skyboxNight != null)
+        {
+            currentSkybox = new Material(skyboxDay);
+        }
+    }
+
+    void Update()
     {
         if (preset == null)
         {
@@ -46,9 +55,16 @@ public class LightningManager : MonoBehaviour
 
         if (Application.isPlaying)
         {
-            //Update time and lightning
-            timeOfDay += Time.deltaTime * speedOfTime;
+            //Calculating speed time 1 = 1hour in game
+            timeTick += Time.deltaTime * speedOfTime;
+
+            //Update time
+            timeOfDay = timeTick;
             timeOfDay %= 24;
+
+            //Update skybox time
+            skyboxChangeTime = Mathf.PingPong(timeTick, 24);
+
             UpdateLightning(timeOfDay / 24f);
             GenerateFog();
         }
@@ -58,7 +74,7 @@ public class LightningManager : MonoBehaviour
         }
     }
 
-    private void UpdateLightning(float timePercent)
+    void UpdateLightning(float timePercent)
     {
         //Setting color based on gradients from our preset
         RenderSettings.ambientLight = preset.ambientColor.Evaluate(timePercent);
@@ -78,22 +94,31 @@ public class LightningManager : MonoBehaviour
             );
         }
 
-        //Changing skyboxmaterial based on time
-        //currentSkybox.Lerp(skyboxDay, skyboxNight, timeOfDay / 24f);
-        //RenderSettings.skybox = currentSkybox;
+        if (skyboxDay != null & skyboxNight != null)
+        {
+            //Changing skyboxmaterial based on time
+            float materialTimeChange = skyboxChangeTime / 24;
+            currentSkybox.Lerp(skyboxDay, skyboxNight, materialTimeChange);
+            RenderSettings.skybox = currentSkybox;
+        }
     }
 
-    private void GenerateFog()
+    void GenerateFog()
     {
         //TODO:Randomize fog density that gonna feel smooth
     }
 
-    private void OnValidate()
+    void OnValidate()
     {
         //Check if directional light is set up
         if (sun != null & moon != null)
         {
             return;
+        }
+
+        if (skyboxDay != null & skyboxNight != null)
+        {
+            currentSkybox = new Material(skyboxDay);
         }
     }
 }
