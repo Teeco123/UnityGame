@@ -13,8 +13,10 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _BACKGROUNDMODE_COLORS
+  - _ENABLEBUILTINFOG_ON
+  - _ENABLECLOUDSROTATION_ON
+  - _ENABLECLOUDS_ON
   - _ENABLEMOON_ON
-  - _ENABLESTARS_ON
   - _ENABLESUN_ON
   m_InvalidKeywords:
   - _ENABLEFOG_ON
@@ -42,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CloudsCubemap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 8900000, guid: 8d7166f9f362bce45af5049a10979b89, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -70,7 +72,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MoonTexture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 16d300134c867234588aeecccb9392b9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -144,20 +146,20 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _EnableBuiltinFog: 0
-    - _EnableClouds: 0
-    - _EnableCloudsRotation: 0
+    - _EnableBuiltinFog: 1
+    - _EnableClouds: 1
+    - _EnableCloudsRotation: 1
     - _EnableFog: 1
     - _EnableFogMessage: 0
     - _EnableMoon: 1
     - _EnablePatternOverlay: 0
     - _EnableRotation: 1
-    - _EnableStars: 1
+    - _EnableStars: 0
     - _EnableStarsRotation: 0
     - _EnableStarsTwinkling: 0
     - _EnableSun: 1
     - _EnvironmentReflections: 1
-    - _EquatorHeight: 0.5
+    - _EquatorHeight: 0.503
     - _EquatorSmoothness: 0.5
     - _Exposure: 1
     - _FogCat: 1
@@ -174,7 +176,7 @@ Material:
     - _Metallic: 0
     - _MoonCat: 1
     - _MoonIntensity: 1
-    - _MoonSize: 0.5
+    - _MoonSize: 0.1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _PatternCat: 1
@@ -203,8 +205,8 @@ Material:
     - _StarsSize: 0.5
     - _StarsSunMask: 0
     - _SunCat: 1
-    - _SunIntensity: 1
-    - _SunSize: 0.5
+    - _SunIntensity: 1.5
+    - _SunSize: 0.3
     - _Surface: 0
     - _TwinklingContrast: 1
     - _TwinklingSpeed: 0.05
@@ -217,14 +219,14 @@ Material:
     - _CloudsShadowColor: {r: 0.49803913, g: 0.7450981, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EquatorColor: {r: 1, g: 0.747, b: 0, a: 1}
-    - _GroundColor: {r: 0.49803913, g: 0.49699998, b: 0, a: 1}
+    - _EquatorColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GroundColor: {r: 0.8773585, g: 0.30129835, b: 0.10346207, a: 1}
     - _MoonColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SkyColor: {r: 0.1348548, g: 1, b: 0, a: 1}
+    - _SkyColor: {r: 0, g: 1, b: 0.9270866, a: 1}
     - _SkyboxRotationAxis: {r: 0, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _StarsRotationAxis: {r: 0, g: 1, b: 0, a: 0}
-    - _SunColor: {r: 1, g: 0, b: 0, a: 1}
+    - _SunColor: {r: 0.9660554, g: 1, b: 0.6179246, a: 1}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5568183183184248689
