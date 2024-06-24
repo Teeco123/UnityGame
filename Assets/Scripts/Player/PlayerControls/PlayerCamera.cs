@@ -3,9 +3,7 @@ using UnityEngine;
 public class PlayerCamera : MonoBehaviour
 {
     float xRotation = 0f;
-    float yRotation = 0f;
 
-    public Transform head;
     public Transform body;
     public float mouseSensitivity = 100f;
 
@@ -15,7 +13,7 @@ public class PlayerCamera : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         //Stops moving camera when dialogue is playing
         if (DialogueManager.Getinstance().dialogueIsPlaying || SceneTransition.triggeredEnter)
@@ -29,12 +27,10 @@ public class PlayerCamera : MonoBehaviour
 
         //Locks player from moving camera more than 90 degrees up and down
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -80f, 75f);
-
-        yRotation += mouseX;
-        yRotation = Mathf.Clamp(yRotation, -80f, 80f);
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         //Rotates camera
-        head.transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        body.Rotate(Vector3.up * mouseX);
     }
 }
