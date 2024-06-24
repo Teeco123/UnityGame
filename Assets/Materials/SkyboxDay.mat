@@ -17,6 +17,8 @@ Material:
   - _ENABLECLOUDSROTATION_ON
   - _ENABLECLOUDS_ON
   - _ENABLEMOON_ON
+  - _ENABLESTARSTWINKLING_ON
+  - _ENABLESTARS_ON
   - _ENABLESUN_ON
   m_InvalidKeywords:
   - _ENABLEFOG_ON
@@ -44,7 +46,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CloudsCubemap:
-        m_Texture: {fileID: 8900000, guid: 8d7166f9f362bce45af5049a10979b89, type: 3}
+        m_Texture: {fileID: 8900000, guid: ee7bf433ad404fe4cb5e19b8a93b3bed, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -92,7 +94,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _StarsCubemap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 8900000, guid: ef37dd05448664543ab7eeb444cec2bf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SunTexture:
@@ -154,9 +156,9 @@ Material:
     - _EnableMoon: 1
     - _EnablePatternOverlay: 0
     - _EnableRotation: 1
-    - _EnableStars: 0
+    - _EnableStars: 1
     - _EnableStarsRotation: 0
-    - _EnableStarsTwinkling: 0
+    - _EnableStarsTwinkling: 1
     - _EnableSun: 1
     - _EnvironmentReflections: 1
     - _EquatorHeight: 0.503
@@ -198,11 +200,11 @@ Material:
     - _StarsBottomMask: 0
     - _StarsCat: 1
     - _StarsHeightMask: 0
-    - _StarsIntensity: 2
-    - _StarsLayer: 2
+    - _StarsIntensity: 5
+    - _StarsLayer: 3
     - _StarsRotation: 360
     - _StarsRotationSpeed: 0.5
-    - _StarsSize: 0.5
+    - _StarsSize: 0
     - _StarsSunMask: 0
     - _SunCat: 1
     - _SunIntensity: 1.5
@@ -219,10 +221,10 @@ Material:
     - _CloudsShadowColor: {r: 0.49803913, g: 0.7450981, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EquatorColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GroundColor: {r: 0.8773585, g: 0.30129835, b: 0.10346207, a: 1}
+    - _EquatorColor: {r: 0.9150943, g: 0.5200493, b: 0.047481313, a: 1}
+    - _GroundColor: {r: 1, g: 1, b: 1, a: 1}
     - _MoonColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SkyColor: {r: 0, g: 1, b: 0.9270866, a: 1}
+    - _SkyColor: {r: 0, g: 1, b: 0.92549014, a: 1}
     - _SkyboxRotationAxis: {r: 0, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _StarsRotationAxis: {r: 0, g: 1, b: 0, a: 0}
