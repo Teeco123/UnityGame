@@ -88,10 +88,12 @@ public class LightningManager : MonoBehaviour
             sun.transform.localRotation = Quaternion.Euler(
                 new Vector3((timePercent * 360f) - 90f, -170, 0)
             );
+            Shader.SetGlobalVector("GlobalSunDirection", -sun.transform.forward);
 
             moon.transform.localRotation = Quaternion.Euler(
                 new Vector3((timePercent * 360f) - 270f, -170, 0)
             );
+            Shader.SetGlobalVector("GlobalMoonDirection", -moon.transform.forward);
         }
 
         if (skyboxDay != null & skyboxNight != null)
