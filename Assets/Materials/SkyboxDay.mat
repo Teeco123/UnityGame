@@ -161,8 +161,8 @@ Material:
     - _EnableStarsTwinkling: 1
     - _EnableSun: 1
     - _EnvironmentReflections: 1
-    - _EquatorHeight: 0.503
-    - _EquatorSmoothness: 0.5
+    - _EquatorHeight: 0.8
+    - _EquatorSmoothness: 0.7
     - _Exposure: 1
     - _FogCat: 1
     - _FogFill: 0
@@ -207,7 +207,7 @@ Material:
     - _StarsSize: 0
     - _StarsSunMask: 0
     - _SunCat: 1
-    - _SunIntensity: 1.5
+    - _SunIntensity: 4
     - _SunSize: 0.3
     - _Surface: 0
     - _TwinklingContrast: 1
@@ -221,14 +221,14 @@ Material:
     - _CloudsShadowColor: {r: 0.49803913, g: 0.7450981, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EquatorColor: {r: 0.9150943, g: 0.5200493, b: 0.047481313, a: 1}
+    - _EquatorColor: {r: 1, g: 0.23921569, b: 0, a: 1}
     - _GroundColor: {r: 1, g: 1, b: 1, a: 1}
     - _MoonColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SkyColor: {r: 0, g: 1, b: 0.92549014, a: 1}
+    - _SkyColor: {r: 0.3820755, g: 0.8532428, b: 1, a: 1}
     - _SkyboxRotationAxis: {r: 0, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _StarsRotationAxis: {r: 0, g: 1, b: 0, a: 0}
-    - _SunColor: {r: 0.9660554, g: 1, b: 0.6179246, a: 1}
+    - _SunColor: {r: 1, g: 0.6210085, b: 0.21226418, a: 1}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5568183183184248689
