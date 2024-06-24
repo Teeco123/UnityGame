@@ -1,31 +1,52 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 [ExecuteInEditMode]
 public class LightningManager : MonoBehaviour
 {
-    [SerializeField]
-    private Light directionalLight;
+    [Header("Sun & Moon")]
+    public Light sun;
 
-    [SerializeField]
-    private Material skyboxMaterial;
+    public Light moon;
 
-    [SerializeField]
-    private LightningPreset preset;
+    [Header("Skybox Materials")]
+    public Material skyboxDay;
+
+    public Material skyboxNight;
+
+    Material currentSkybox;
+
+    [Header("Lightning Preset")]
+    public LightningPreset preset;
+
+    [Header("Time Management")]
+    public float timeTick;
 
     [SerializeField, Range(0, 24)]
-    private float timeOfDay;
+    public float timeOfDay;
+
+    [SerializeField, Range(0, 24)]
+    public float skyboxChangeTime;
 
     [SerializeField, Range(0, 1)]
-    private float speedOfTime = 0.0166666666666667f; //1 minute  = 1 hour in game
+    public float speedOfTime = 0.0166666666666667f; //1 minute  = 1 hour in game
 
     [Header("Fog Density")]
     [SerializeField, Range(0, 1)]
     public float maxFogDensity;
 
     [SerializeField, Range(0, 1)]
-    private float minFogDensity;
+    public float minFogDensity;
 
-    private void Update()
+    void Start()
+    {
+        if (skyboxDay != null && skyboxNight != null)
+        {
+            currentSkybox = new Material(skyboxDay);
+        }
+    }
+
+    void Update()
     {
         if (preset == null)
         {
@@ -34,9 +55,16 @@ public class LightningManager : MonoBehaviour
 
         if (Application.isPlaying)
         {
-            //Update time and lightning
-            timeOfDay += Time.deltaTime * speedOfTime;
+            //Calculating speed time 1 = 1hour in game
+            timeTick += Time.deltaTime * speedOfTime;
+
+            //Update time
+            timeOfDay = timeTick;
             timeOfDay %= 24;
+
+            //Update skybox time
+            skyboxChangeTime = Mathf.PingPong(timeTick, 24);
+
             UpdateLightning(timeOfDay / 24f);
             GenerateFog();
         }
@@ -46,54 +74,53 @@ public class LightningManager : MonoBehaviour
         }
     }
 
-    private void UpdateLightning(float timePercent)
+    void UpdateLightning(float timePercent)
     {
         //Setting color based on gradients from our preset
         RenderSettings.ambientLight = preset.ambientColor.Evaluate(timePercent);
         RenderSettings.fogColor = preset.fogColor.Evaluate(timePercent);
-        skyboxMaterial.SetColor("_SkyTint", preset.skyboxColor.Evaluate(timePercent));
 
-        if (directionalLight != null)
+        if (sun != null & moon != null)
         {
             //Set color of the sun & rotates sun based on time
-            directionalLight.color = preset.directionalColor.Evaluate(timePercent);
-            directionalLight.transform.localRotation = Quaternion.Euler(
+            //sun.color = preset.directionalColor.Evaluate(timePercent);
+
+            sun.transform.localRotation = Quaternion.Euler(
                 new Vector3((timePercent * 360f) - 90f, -170, 0)
             );
+            Shader.SetGlobalVector("GlobalSunDirection", -sun.transform.forward);
+
+            moon.transform.localRotation = Quaternion.Euler(
+                new Vector3((timePercent * 360f) - 270f, -170, 0)
+            );
+            Shader.SetGlobalVector("GlobalMoonDirection", -moon.transform.forward);
+        }
+
+        if (skyboxDay != null & skyboxNight != null)
+        {
+            //Changing skyboxmaterial based on time
+            float materialTimeChange = skyboxChangeTime / 12;
+            currentSkybox.Lerp(skyboxNight, skyboxDay, Mathf.PingPong(materialTimeChange,1));
+            RenderSettings.skybox = currentSkybox;
         }
     }
 
-    private void GenerateFog()
+    void GenerateFog()
     {
         //TODO:Randomize fog density that gonna feel smooth
     }
 
-    private void OnValidate()
+    void OnValidate()
     {
         //Check if directional light is set up
-        if (directionalLight != null)
+        if (sun != null & moon != null)
         {
             return;
         }
 
-        //Makes directional light a sun
-        if (RenderSettings.sun != null)
+        if (skyboxDay != null & skyboxNight != null)
         {
-            directionalLight = RenderSettings.sun;
-        }
-        else
-        {
-            Light[] lights = GameObject.FindObjectsOfType<Light>();
-
-            //If no sun is found search for first directional light and set it as a sun
-            foreach (Light light in lights)
-            {
-                if (light.type == LightType.Directional)
-                {
-                    directionalLight = light;
-                    return;
-                }
-            }
+            currentSkybox = new Material(skyboxDay);
         }
     }
 }
