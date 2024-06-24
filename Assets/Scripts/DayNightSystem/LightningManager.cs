@@ -99,8 +99,8 @@ public class LightningManager : MonoBehaviour
         if (skyboxDay != null & skyboxNight != null)
         {
             //Changing skyboxmaterial based on time
-            float materialTimeChange = skyboxChangeTime / 24;
-            currentSkybox.Lerp(skyboxDay, skyboxNight, materialTimeChange);
+            float materialTimeChange = skyboxChangeTime / 12;
+            currentSkybox.Lerp(skyboxNight, skyboxDay, Mathf.PingPong(materialTimeChange,1));
             RenderSettings.skybox = currentSkybox;
         }
     }
