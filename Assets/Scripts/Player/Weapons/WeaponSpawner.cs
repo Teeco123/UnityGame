@@ -36,7 +36,14 @@ public class WeaponSpawner : MonoBehaviour
                 //Converting item from InventoryModel to Guns class
                 gunToSpawn = (Guns)foundItem.item;
 
-                //TODO: Spawning weapon in weapon holder based on weapons in inventory
+                //Spawning weapon in weapon holder based on weapons in inventory
+                GameObject spawnedGun = Instantiate(
+                    gunToSpawn.model,
+                    gunToSpawn.position,
+                    gunToSpawn.rotation
+                );
+                spawnedGun.SetActive(false);
+                spawnedGun.transform.SetParent(this.transform, false);
             }
         }
     }
