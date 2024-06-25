@@ -7,6 +7,7 @@ TagManager:
   - npc
   - Enemy
   - Item
+  - Camera
   layers:
   - Default
   - TransparentFX

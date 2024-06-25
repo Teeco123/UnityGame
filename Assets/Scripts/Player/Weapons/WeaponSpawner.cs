@@ -38,7 +38,7 @@ public class WeaponSpawner : MonoBehaviour
 
                 //Spawning weapon in weapon holder based on weapons in inventory
                 GameObject spawnedGun = Instantiate(
-                    gunToSpawn.model,
+                    gunToSpawn.prefab,
                     gunToSpawn.position,
                     gunToSpawn.rotation
                 );
