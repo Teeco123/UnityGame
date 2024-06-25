@@ -36,14 +36,32 @@ public class WeaponSpawner : MonoBehaviour
                 //Converting item from InventoryModel to Guns class
                 gunToSpawn = (Guns)foundItem.item;
 
-                //Spawning weapon in weapon holder based on weapons in inventory
-                GameObject spawnedGun = Instantiate(
-                    gunToSpawn.prefab,
-                    gunToSpawn.position,
-                    gunToSpawn.rotation
-                );
-                spawnedGun.SetActive(false);
-                spawnedGun.transform.SetParent(this.transform, false);
+                //Finding all objects with tag Gun
+                GameObject[] gunsInScene;
+                gunsInScene = GameObject.FindGameObjectsWithTag("Gun");
+
+                foreach (GameObject gunInScene in gunsInScene)
+                {
+                    //Retrieving gunstats SO from found gun
+                    Shooting gunComponent = gunInScene.GetComponent<Shooting>();
+
+                    if (gunComponent.gunsStats == gunToSpawn)
+                    {
+                        Debug.Log("Gun Exists");
+                        return;
+                    }
+                    else
+                    {
+                        //If gun doesn't match with any object on scene gun spawns
+                        Debug.Log("Spawning Gun");
+                        GameObject spawnedGun = Instantiate(
+                            gunToSpawn.prefab,
+                            gunToSpawn.position,
+                            gunToSpawn.rotation
+                        );
+                        spawnedGun.transform.SetParent(this.transform, false);
+                    }
+                }
             }
         }
     }
