@@ -15,17 +15,17 @@ public class PlayerCamera : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        //Gets player input from mouse
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
         //Stops moving camera when dialogue is playing
         if (DialogueManager.Getinstance().dialogueIsPlaying || SceneTransition.triggeredEnter)
         {
             return;
         }
-
-        //Gets player input from mouse
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         //Locks player from moving camera more than 90 degrees up and down
         xRotation -= mouseY;
