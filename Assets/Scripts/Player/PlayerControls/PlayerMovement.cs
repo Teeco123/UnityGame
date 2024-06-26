@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
     void Start()
     {
         //Add controller to player object
-        controller = gameObject.AddComponent<CharacterController>();
+        controller = gameObject.GetComponent<CharacterController>();
     }
 
     // Update is called once per frame

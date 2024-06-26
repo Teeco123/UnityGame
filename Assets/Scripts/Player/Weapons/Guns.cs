@@ -7,7 +7,7 @@ public class Guns : ScriptableObject
 {
     [Header("Gun Info")]
     public string gunName;
-    public GameObject model;
+    public GameObject prefab;
 
     [Header("Gun Stats")]
     public int gunDamageMin;

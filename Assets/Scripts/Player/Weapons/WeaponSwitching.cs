@@ -56,11 +56,22 @@ public class WeaponSwitching : MonoBehaviour
         {
             if (i == selectedWeapon)
             {
-                weapon.gameObject.SetActive(true);
+                //Enabling every component of weapon
+                foreach (Behaviour childCompnent in weapon.GetComponentsInChildren<Behaviour>())
+                {
+                    childCompnent.enabled = true;
+                }
+                //And mesh renderer cause its retarded
+                weapon.GetComponent<MeshRenderer>().enabled = true;
             }
             else
             {
-                weapon.gameObject.SetActive(false);
+                //Same but disabling
+                foreach (Behaviour childCompnent in weapon.GetComponentsInChildren<Behaviour>())
+                {
+                    childCompnent.enabled = false;
+                }
+                weapon.GetComponent<MeshRenderer>().enabled = false;
             }
             i++;
         }

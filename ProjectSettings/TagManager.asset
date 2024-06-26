@@ -7,6 +7,8 @@ TagManager:
   - npc
   - Enemy
   - Item
+  - Camera
+  - Gun
   layers:
   - Default
   - TransparentFX

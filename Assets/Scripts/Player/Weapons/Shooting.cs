@@ -10,10 +10,15 @@ public class Shooting : MonoBehaviour
 
     private bool isReloading = false;
 
-    public Camera playerCamera;
+    public GameObject playerCamera;
     public Transform muzzle;
 
     private float nextTimeToFire = 0f;
+
+    void Awake()
+    {
+        playerCamera = GameObject.FindGameObjectWithTag("Camera");
+    }
 
     void Start()
     {

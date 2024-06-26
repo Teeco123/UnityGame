@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e11be7affdd8145bd2210fe2d3f3e8, type: 3}
+  m_Name: NoWeapon
+  m_EditorClassIdentifier: 
+  gunName: NoWeapon
+  prefab: {fileID: 7693052807124630643, guid: 885fd4dedc3f051428d84b94d6a60b35, type: 3}
+  gunDamageMin: 0
+  gunDamageMax: 0
+  maxAmmo: 0
+  fireRate: 0
+  range: 0
+  reloadTime: 0
+  ammoType: 0
+  weaponType: 0
+  position: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0, z: 0, w: 0}
+  muzzleFlash: {fileID: 1139449061860345749, guid: 6a5330fdbec38284eab0891b166eb7f7,
+    type: 3}
+  impactEffect: {fileID: 6646003119391762672, guid: 6a5330fdbec38284eab0891b166eb7f7,
+    type: 3}
