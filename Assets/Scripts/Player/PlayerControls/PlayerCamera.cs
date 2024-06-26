@@ -32,7 +32,7 @@ public class PlayerCamera : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -80f, 75f);
 
         yRotation += mouseX;
-        yRotation = Mathf.Clamp(yRotation, -80f, 80f);
+        //yRotation = Mathf.Clamp(yRotation, -80f, 80f);
 
         //Rotates camera
         head.transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
