@@ -41,6 +41,7 @@ public class WeaponSpawner : MonoBehaviour
                 gunsInScene = GameObject.FindGameObjectsWithTag("Gun");
 
                 //Looping through all guns in scene
+                //TODO: This part of code don't work correctly
                 foreach (GameObject gunInScene in gunsInScene)
                 {
                     //Retrieving Shooting component from gun
