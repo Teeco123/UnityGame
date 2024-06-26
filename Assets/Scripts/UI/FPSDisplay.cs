@@ -14,6 +14,7 @@ public class FPSCounter : MonoBehaviour
     void Start()
     {
         txt = GetComponent<TMP_Text>();
+        Application.targetFrameRate = -1;
     }
 
     // Update is called once per frame
