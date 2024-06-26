@@ -3,7 +3,8 @@ using UnityEngine;
 public class PlayerCamera : MonoBehaviour
 {
     float xRotation = 0f;
-    float yRotation = 0f;
+
+    //float yRotation = 0f;
 
     public Transform head;
     public Transform body;
@@ -29,12 +30,14 @@ public class PlayerCamera : MonoBehaviour
 
         //Locks player from moving camera more than 90 degrees up and down
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -80f, 75f);
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        yRotation += mouseX;
+        //yRotation += mouseX;
         //yRotation = Mathf.Clamp(yRotation, -80f, 80f);
 
         //Rotates camera
-        head.transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        body.Rotate(Vector3.up * mouseX);
+        //body.transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
     }
 }
