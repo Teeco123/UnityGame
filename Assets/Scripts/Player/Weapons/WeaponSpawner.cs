@@ -40,17 +40,22 @@ public class WeaponSpawner : MonoBehaviour
                 GameObject[] gunsInScene;
                 gunsInScene = GameObject.FindGameObjectsWithTag("Gun");
 
+                //Looping through all guns in scene
                 foreach (GameObject gunInScene in gunsInScene)
                 {
-                    //Retrieving gunstats SO from found gun
+                    //Retrieving Shooting component from gun
                     Shooting gunComponent = gunInScene.GetComponent<Shooting>();
 
-                    if (gunComponent.gunsStats == gunToSpawn)
+                    Debug.Log("Gun to Spawn: " + gunToSpawn.gunName);
+                    Debug.Log("Gun in Scene: " + gunComponent.gunsStats.gunName);
+
+                    //Comparing gun in scene with gun that gonna spawn
+                    //If gun exists on scene gun doesn't spawn
+                    if (gunComponent.gunsStats.gunName == gunToSpawn.gunName)
                     {
                         Debug.Log("Gun Exists");
-                        return;
                     }
-                    else
+                    else if (gunComponent.gunsStats != gunToSpawn)
                     {
                         //If gun doesn't match with any object on scene gun spawns
                         Debug.Log("Spawning Gun");
