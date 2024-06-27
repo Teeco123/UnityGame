@@ -13,16 +13,12 @@ public class Main_menu : MonoBehaviour
 
     public void NewGame()
     {
-        File.Delete(Application.persistentDataPath + "/SaveFile"); //Deletes save file
-        DataSavingManager.instance.NewGame(); //This dont work 💀💀
-
         SceneManager.LoadSceneAsync("MainScene");
     }
 
     public void BackMenu()
     {
         SceneManager.LoadSceneAsync("Menu");
-        DataSavingManager.instance.SaveGame();
     }
 
     public void QuitGame()

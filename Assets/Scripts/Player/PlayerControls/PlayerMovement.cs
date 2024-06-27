@@ -84,11 +84,5 @@ public class PlayerMovement : MonoBehaviour
         {
             speed = walkSpeed;
         }
-
-        //Saving on F5
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            DataSavingManager.instance.SaveGame();
-        }
     }
 }
