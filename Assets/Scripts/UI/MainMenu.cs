@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Main_menu : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     public void ContinueGame()
     {
@@ -14,6 +14,7 @@ public class Main_menu : MonoBehaviour
     public void NewGame()
     {
         SceneManager.LoadScene("MainScene");
+        ES3.DeleteFile("SaveFile.es3");
     }
 
     public void BackMenu()
