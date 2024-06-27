@@ -21,6 +21,5 @@ public class SavingPosition : MonoBehaviour
     {
         ES3.Save("GOPosition: " + uId, transform.position);
         ES3.Save("GORotation: " + uId, transform.rotation);
-        Debug.Log("saved position");
     }
 }
