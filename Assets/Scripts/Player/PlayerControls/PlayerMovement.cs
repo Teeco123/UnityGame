@@ -1,7 +1,8 @@
 using System.Collections;
+using ES3Types;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour, SavingInterface
+public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 velocity;
@@ -19,9 +20,14 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
 
     public VectorValue startingPosition;
 
-    private void OnEnable()
+    void OnApplicationQuit()
     {
-        Delay();
+        ES3.Save("playerPosition", transform.position);
+    }
+
+    void Awake()
+    {
+        transform.position = ES3.Load("myPosition", Vector3.zero);
     }
 
     void Start()
@@ -81,30 +87,5 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
         {
             DataSavingManager.instance.SaveGame();
         }
-    }
-
-    public void LoadData(GameData data)
-    {
-        this.transform.position = data.playerPosition;
-    }
-
-    public void SaveData(GameData data)
-    {
-        data.playerPosition = this.transform.position;
-    }
-
-    private void Delay()
-    {
-        if (SceneTransition.isEntering)
-        {
-            StartCoroutine(DelayThenTransform(0.1f));
-        }
-    }
-
-    //Moves player to door location after moving to saved Vector3
-    IEnumerator DelayThenTransform(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        transform.position = startingPosition.initialValue;
     }
 }
