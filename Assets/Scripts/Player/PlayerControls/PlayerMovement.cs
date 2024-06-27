@@ -1,6 +1,7 @@
 using System.Collections;
 using ES3Types;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -23,11 +24,13 @@ public class PlayerMovement : MonoBehaviour
     void OnApplicationQuit()
     {
         ES3.Save("playerPosition", transform.position);
+        ES3.Save("playerRotation", transform.rotation);
     }
 
     void Awake()
     {
-        transform.position = ES3.Load("myPosition", Vector3.zero);
+        transform.position = ES3.Load("playerPosition", Vector3.zero);
+        transform.rotation = ES3.Load("playerRotation", Quaternion.identity);
     }
 
     void Start()
