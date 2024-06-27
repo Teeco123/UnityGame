@@ -30,8 +30,13 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
-    - Assembly-CSharp-firstpass
     - Assembly-CSharp
+    - Boxophobic.PolyverseSkies.Runtime
+    - Boxophobic.PolyverseSkies.Scripts
+    - Boxophobic.Utils.Scripts
+    - Ink-Libraries
+    - SingularityGroup.HotReload.Runtime
+    - SingularityGroup.HotReload.Runtime.Public
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
