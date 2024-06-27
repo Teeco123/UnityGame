@@ -38,6 +38,16 @@ public class LightningManager : MonoBehaviour
     [SerializeField, Range(0, 1)]
     public float minFogDensity;
 
+    void OnApplicationQuit()
+    {
+        ES3.Save("timeTick", timeTick);
+    }
+
+    void Awake()
+    {
+        timeTick = ES3.Load("timeTick", 0f);
+    }
+
     void Start()
     {
         if (skyboxDay != null && skyboxNight != null)
@@ -100,7 +110,7 @@ public class LightningManager : MonoBehaviour
         {
             //Changing skyboxmaterial based on time
             float materialTimeChange = skyboxChangeTime / 12;
-            currentSkybox.Lerp(skyboxNight, skyboxDay, Mathf.PingPong(materialTimeChange,1));
+            currentSkybox.Lerp(skyboxNight, skyboxDay, Mathf.PingPong(materialTimeChange, 1));
             RenderSettings.skybox = currentSkybox;
         }
     }
