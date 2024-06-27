@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Stops moving player when dialogue is playing
-        if (DialogueManager.Getinstance().dialogueIsPlaying || SceneTransition.triggeredEnter)
+        if (SceneTransition.triggeredEnter)
         {
             return;
         }
