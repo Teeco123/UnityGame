@@ -23,7 +23,7 @@ public class PlayerCamera : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         //Stops moving camera when dialogue is playing
-        if (DialogueManager.Getinstance().dialogueIsPlaying || SceneTransition.triggeredEnter)
+        if (SceneTransition.triggeredEnter)
         {
             return;
         }
