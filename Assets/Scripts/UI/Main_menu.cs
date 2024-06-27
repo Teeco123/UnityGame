@@ -8,17 +8,17 @@ public class Main_menu : MonoBehaviour
 {
     public void ContinueGame()
     {
-        SceneManager.LoadSceneAsync("MainScene");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void NewGame()
     {
-        SceneManager.LoadSceneAsync("MainScene");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void BackMenu()
     {
-        SceneManager.LoadSceneAsync("Menu");
+        SceneManager.LoadScene("Menu");
     }
 
     public void QuitGame()

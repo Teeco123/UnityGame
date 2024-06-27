@@ -38,7 +38,7 @@ public class LightningManager : MonoBehaviour
     [SerializeField, Range(0, 1)]
     public float minFogDensity;
 
-    void OnApplicationQuit()
+    void OnDestroy()
     {
         ES3.Save("timeTick", timeTick);
     }

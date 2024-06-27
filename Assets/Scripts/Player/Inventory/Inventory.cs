@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
 {
     public List<InventoryModel> inventory;
 
-    void OnApplicationQuit()
+    void OnDestroy()
     {
         ES3.Save("inventory", inventory);
     }

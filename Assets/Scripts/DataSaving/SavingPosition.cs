@@ -17,9 +17,10 @@ public class SavingPosition : MonoBehaviour
         transform.rotation = ES3.Load("GORotation: " + uId, startingRotation);
     }
 
-    void OnApplicationQuit()
+    void OnDestroy()
     {
         ES3.Save("GOPosition: " + uId, transform.position);
         ES3.Save("GORotation: " + uId, transform.rotation);
+        Debug.Log("saved position");
     }
 }

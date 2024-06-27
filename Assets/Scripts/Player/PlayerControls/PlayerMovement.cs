@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     public VectorValue startingPosition;
 
-    void OnApplicationQuit()
+    void OnDestroy()
     {
         ES3.Save("playerPosition", transform.position);
         ES3.Save("playerRotation", transform.rotation);
