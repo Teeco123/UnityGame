@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e11be7affdd8145bd2210fe2d3f3e8, type: 3}
   m_Name: M1 Garand
   m_EditorClassIdentifier: 
-  gunName: 
-  prefab: {fileID: 0}
-  gunDamageMin: 0
-  gunDamageMax: 0
-  maxAmmo: 0
-  fireRate: 0
-  range: 0
-  reloadTime: 0
+  gunName: M1 Garand
+  prefab: {fileID: 1544474962948224445, guid: cafeac15df750304199da30c8da59c8f, type: 3}
+  gunDamageMin: 1
+  gunDamageMax: 1
+  maxAmmo: 12
+  fireRate: 2
+  range: 400
+  reloadTime: 2
   ammoType: 0
   weaponType: 0
   position: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 0}
-  muzzleFlash: {fileID: 0}
-  impactEffect: {fileID: 0}
+  muzzleFlash: {fileID: 3949793042020618606, guid: 5d6d8cdfb2ceae545bb00dde2b151713,
+    type: 3}
+  impactEffect: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}

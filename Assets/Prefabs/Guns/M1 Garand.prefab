@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa93a26dc2c92e348819d521e81a36d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunsStats: {fileID: 0}
+  gunsStats: {fileID: 11400000, guid: 3e0d18a91cc7a1f4e974aa113d1ff66f, type: 2}
   currentAmmo: 0
   playerCamera: {fileID: 0}
   muzzle: {fileID: 475955195258994905}
