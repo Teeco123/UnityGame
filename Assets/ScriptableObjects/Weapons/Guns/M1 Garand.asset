@@ -10,20 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1e11be7affdd8145bd2210fe2d3f3e8, type: 3}
-  m_Name: AK-47
+  m_Name: M1 Garand
   m_EditorClassIdentifier: 
-  gunName: AK-47
-  model: {fileID: 919132149155446097, guid: f3a99f52ff8e676418c763da72635587, type: 3}
-  gunDamageMin: 4
-  gunDamageMax: 6
-  maxAmmo: 30
-  fireRate: 10
-  range: 150
-  reloadTime: 2
-  ammoType: 3
-  weaponType: 1
+  gunName: 
+  prefab: {fileID: 0}
+  gunDamageMin: 0
+  gunDamageMax: 0
+  maxAmmo: 0
+  fireRate: 0
+  range: 0
+  reloadTime: 0
+  ammoType: 0
+  weaponType: 0
   position: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 0}
-  muzzleFlash: {fileID: 7477715979626837251, guid: bde052a183ec8b24ba382ec31737834a,
-    type: 3}
-  impactEffect: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
+  muzzleFlash: {fileID: 0}
+  impactEffect: {fileID: 0}
