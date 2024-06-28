@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 1049978266}
+  m_SkyboxMaterial: {fileID: 915356203}
   m_HaloStrength: 0
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -725,7 +725,7 @@ MonoBehaviour:
   gunList:
   - {fileID: 11400000, guid: 61f58aa6e12a98a45ab770579f3efdcf, type: 2}
   - {fileID: 11400000, guid: 5379123430b09714eb08c5e5c76bad58, type: 2}
-  - {fileID: 11400000, guid: 87334d4c27f3f1f4db59e0dd05b46103, type: 2}
+  - {fileID: 11400000, guid: 3e0d18a91cc7a1f4e974aa113d1ff66f, type: 2}
 --- !u!4 &449980735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4280890102989871252, guid: 009d1ac76215dc04faf0fa02198b8b28,
@@ -1565,7 +1565,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 882508370}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1049978266
+--- !u!21 &915356203
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0

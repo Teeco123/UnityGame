@@ -42,6 +42,11 @@ public class WeaponSpawner : MonoBehaviour
 
                 //Looping through all guns in scene
                 //TODO: This part of code don't work correctly
+
+                //wojsen's change:
+                bool foundItemIsInScene = false;
+
+
                 foreach (GameObject gunInScene in gunsInScene)
                 {
                     //Retrieving Shooting component from gun
@@ -55,18 +60,22 @@ public class WeaponSpawner : MonoBehaviour
                     if (gunComponent.gunsStats.gunName == gunToSpawn.gunName)
                     {
                         Debug.Log("Gun Exists");
+                        foundItemIsInScene = true;
+                        break;
                     }
-                    else if (gunComponent.gunsStats != gunToSpawn)
-                    {
-                        //If gun doesn't match with any object on scene gun spawns
-                        Debug.Log("Spawning Gun");
-                        GameObject spawnedGun = Instantiate(
-                            gunToSpawn.prefab,
-                            gunToSpawn.position,
-                            gunToSpawn.rotation
-                        );
-                        spawnedGun.transform.SetParent(this.transform, false);
-                    }
+                    
+                }
+                //If gun doesn't match with any object on scene gun spawns
+                if (foundItemIsInScene == false)
+                {
+                    
+                    Debug.Log("Spawning Gun");
+                    GameObject spawnedGun = Instantiate(
+                        gunToSpawn.prefab,
+                        gunToSpawn.position,
+                        gunToSpawn.rotation
+                    );
+                    spawnedGun.transform.SetParent(this.transform, false);
                 }
             }
         }
