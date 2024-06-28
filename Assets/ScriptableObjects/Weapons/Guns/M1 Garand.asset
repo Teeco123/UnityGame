@@ -22,7 +22,7 @@ MonoBehaviour:
   reloadTime: 2
   ammoType: 0
   weaponType: 0
-  position: {x: 0, y: 0, z: 0}
+  position: {x: 2.5, y: -1, z: 4}
   rotation: {x: 0, y: 0, z: 0, w: 0}
   muzzleFlash: {fileID: 3949793042020618606, guid: 5d6d8cdfb2ceae545bb00dde2b151713,
     type: 3}
