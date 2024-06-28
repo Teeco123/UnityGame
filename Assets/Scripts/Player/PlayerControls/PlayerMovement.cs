@@ -1,7 +1,9 @@
 using System.Collections;
+using ES3Types;
 using UnityEngine;
+using UnityEngine.Timeline;
 
-public class PlayerMovement : MonoBehaviour, SavingInterface
+public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 velocity;
@@ -19,9 +21,16 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
 
     public VectorValue startingPosition;
 
-    private void OnEnable()
+    void OnDestroy()
     {
-        Delay();
+        ES3.Save("playerPosition", transform.position);
+        ES3.Save("playerRotation", transform.rotation);
+    }
+
+    void Awake()
+    {
+        transform.position = ES3.Load("playerPosition", Vector3.zero);
+        transform.rotation = ES3.Load("playerRotation", Quaternion.identity);
     }
 
     void Start()
@@ -34,7 +43,7 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
     void Update()
     {
         //Stops moving player when dialogue is playing
-        if (DialogueManager.Getinstance().dialogueIsPlaying || SceneTransition.triggeredEnter)
+        if (SceneTransition.triggeredEnter)
         {
             return;
         }
@@ -75,36 +84,5 @@ public class PlayerMovement : MonoBehaviour, SavingInterface
         {
             speed = walkSpeed;
         }
-
-        //Saving on F5
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            DataSavingManager.instance.SaveGame();
-        }
-    }
-
-    public void LoadData(GameData data)
-    {
-        this.transform.position = data.playerPosition;
-    }
-
-    public void SaveData(GameData data)
-    {
-        data.playerPosition = this.transform.position;
-    }
-
-    private void Delay()
-    {
-        if (SceneTransition.isEntering)
-        {
-            StartCoroutine(DelayThenTransform(0.1f));
-        }
-    }
-
-    //Moves player to door location after moving to saved Vector3
-    IEnumerator DelayThenTransform(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        transform.position = startingPosition.initialValue;
     }
 }

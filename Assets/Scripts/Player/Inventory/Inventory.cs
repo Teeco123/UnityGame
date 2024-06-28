@@ -11,9 +11,19 @@ public class InventoryModel
     public int quantity;
 }
 
-public class Inventory : MonoBehaviour, SavingInterface
+public class Inventory : MonoBehaviour
 {
     public List<InventoryModel> inventory;
+
+    void OnDestroy()
+    {
+        ES3.Save("inventory", inventory);
+    }
+
+    void Awake()
+    {
+        inventory = ES3.Load("inventory", new List<InventoryModel>());
+    }
 
     //Adding item to player inventory
     public void AddItem(InventoryModel item)
@@ -27,16 +37,5 @@ public class Inventory : MonoBehaviour, SavingInterface
             }
         }
         inventory.Add(item);
-    }
-
-    //Saving / Loading data
-    public void LoadData(GameData data)
-    {
-        this.inventory = data.inventory;
-    }
-
-    public void SaveData(GameData data)
-    {
-        data.inventory = this.inventory;
     }
 }
