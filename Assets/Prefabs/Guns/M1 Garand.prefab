@@ -94,6 +94,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: M1 Garand
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b87dd4951666569438759afac1ae13fb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Gun
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
